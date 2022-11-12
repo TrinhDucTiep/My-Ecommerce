@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">My Ecommerce</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="re_input_password">Nhập lại mật khẩu</string>
+    <string name="sign_in">Đăng nhập</string>
+    <string name="sign_up">Đăng ký</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="dont_have_account">Chưa có tài khoản? Đăng ký</string>
+    <string name="full_name">Họ tên</string>
+    <string name="sign_up_successfully">Đăng ký thành công</string>
+    <string name="error_happened">Đã có lỗi xảy ra</string>
+    <string name="invalid_email">Email không hợp lệ</string>
+    <string name="require_full_name">Họ tên trống!</string>
+    <string name="require_password_8_characters">Mật khẩu ít nhất 8 ký tự</string>
+    <string name="invalid_account_or_password">Tài khoản hoặc mật khẩu không chính xác</string>
+    <string name="password_not_match">Mật khẩu không trùng khớp</string>
+    <string name="send_email">Gửi mail</string>
+    <string name="guide_reset_password">Sau khi nhấn gửi, vui lòng check email để đổi mật khẩu</string>
+    <string name="send_email_successfully">Gửi email thành công, vui lòng kiểm tra email để đổi mật khẩu</string>
+    <string name="send_email_failed">Gửi email thất bại, vui lòng kiểm tra kết nối mạng</string>
+
+    <string name="search_view_hint">Tìm kiếm sản phẩm, shop, …</string>
+
+    <string name="home">Trang chủ</string>
+    <string name="cart">Giỏ hàng</string>
+    <string name="notification">Thông báo</string>
+    <string name="chat">Tin nhắn</string>
+    <string name="account">Tài khoản</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
