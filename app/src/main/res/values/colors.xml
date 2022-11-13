@@ -4,11 +4,13 @@
     <color name="colorPrimaryDark">#1a7a6a</color>
 
     <!--    back ground-->
+    <color name="colorLightBG">#ECECEC</color>
     <color name="colorGrayBG">#d7d5d5</color>
     <color name="colorDarkBG">#1C1C1C</color>
 
     <!--    text-->
     <color name="colorTextGray">#737373</color>
+    <color name="colorTextDefault">#A7525252</color>
 
     <!--    line-->
     <color name="transparent">#00000000</color>

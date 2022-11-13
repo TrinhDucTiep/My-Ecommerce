@@ -37,6 +37,7 @@ class MainFragment : Fragment() {
         controller = findNavController()
 
         initUi()
+        binding.viewPager.isUserInputEnabled = false
 
         return mView
     }

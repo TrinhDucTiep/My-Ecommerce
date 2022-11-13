@@ -8,14 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myecommerce.R
 import com.example.myecommerce.model.BannerModel
 
-class BannerAdapter(private var listBannerModel: MutableList<BannerModel>) : RecyclerView.Adapter<BannerAdapter.BannerViewHolder>() {
-
-    class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var imgBanner: ImageView
-        init {
-            imgBanner = itemView.findViewById(R.id.bannerImg)
-        }
-    }
+class BannerAdapter(var listBannerModel: MutableList<BannerModel>) : RecyclerView.Adapter<BannerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_banner, parent, false)
@@ -29,5 +22,13 @@ class BannerAdapter(private var listBannerModel: MutableList<BannerModel>) : Rec
 
     override fun getItemCount(): Int {
         return listBannerModel.size
+    }
+
+}
+
+class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    var imgBanner: ImageView
+    init {
+        imgBanner = itemView.findViewById(R.id.bannerImg)
     }
 }

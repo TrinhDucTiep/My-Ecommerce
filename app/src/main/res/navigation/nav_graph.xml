@@ -18,7 +18,9 @@
             app:enterAnim="@anim/slide_from_bottom"/>
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -31,7 +33,7 @@
             app:enterAnim="@anim/slide_from_bottom"
             app:popExitAnim="@anim/slideout_from_bottom"/>
         <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
+            android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true"/>

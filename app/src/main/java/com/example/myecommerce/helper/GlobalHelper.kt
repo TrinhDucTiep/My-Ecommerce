@@ -24,10 +24,9 @@ interface GlobalHelper {
 
         val listBannerModel = mutableListOf<BannerModel>(
             BannerModel(R.drawable.banner_1),
+            BannerModel(R.drawable.banner_3),
             BannerModel(R.drawable.banner_2),
-            BannerModel(R.drawable.banner_1),
-            BannerModel(R.drawable.banner_2),
-            BannerModel(R.drawable.banner_1)
+            BannerModel(R.drawable.banner_4),
         )
 
     }

@@ -28,7 +28,7 @@ class UserViewModel: ViewModel() {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(OnCompleteListener {task ->
                 if(task.isSuccessful){
-                    controller.navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                    controller.navigate(LoginFragmentDirections.actionLoginFragmentToMainFragment())
                 } else{
                     Toast.makeText(context, R.string.invalid_account_or_password, Toast.LENGTH_SHORT).show()
                 }

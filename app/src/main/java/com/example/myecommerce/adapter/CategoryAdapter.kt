@@ -6,14 +6,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.myecommerce.R
 import com.example.myecommerce.model.CategoryModel
 
 class CategoryAdapter(private var categoryModelList : MutableList<CategoryModel>) : RecyclerView.Adapter<CategoryHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_category, parent, false)
         return CategoryHolder(view)
     }
 

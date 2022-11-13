@@ -1,4 +1,4 @@
 package com.example.myecommerce.model
 
-class BannerModel(var bannerId: Int) {
+data class BannerModel(var bannerId: Int) {
 }
