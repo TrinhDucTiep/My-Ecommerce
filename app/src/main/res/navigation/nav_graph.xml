@@ -71,6 +71,9 @@
         <action
             android:id="@+id/action_mainFragment_to_testFragment"
             app:destination="@id/testFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_detailCategoryFragment"
+            app:destination="@id/detailCategoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -107,4 +110,9 @@
         android:name="com.example.myecommerce.view.fragment.TestFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" />
+    <fragment
+        android:id="@+id/detailCategoryFragment"
+        android:name="com.example.myecommerce.view.fragment.DetailCategoryFragment"
+        android:label="fragment_detail_category"
+        tools:layout="@layout/fragment_detail_category" />
 </navigation>

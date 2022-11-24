@@ -29,5 +29,7 @@ interface GlobalHelper {
             BannerModel(R.drawable.banner_4),
         )
 
+        val numberProductInGridView = 4
+
     }
 }

@@ -2,10 +2,11 @@ package com.example.myecommerce.view.fragment
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.*
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,18 +14,17 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.example.myecommerce.R
 import com.example.myecommerce.adapter.BannerAdapter
-import com.example.myecommerce.adapter.CategoryAdapter
 import com.example.myecommerce.adapter.GridProductAdapter
 import com.example.myecommerce.adapter.HorizontalProductAdapter
-import com.example.myecommerce.databinding.FragmentHomeBinding
+import com.example.myecommerce.databinding.FragmentDetailCategoryBinding
 import com.example.myecommerce.helper.GlobalHelper
 import com.example.myecommerce.model.HorizontalProductModel
 
-class HomeFragment : Fragment() {
+class DetailCategoryFragment : Fragment(){
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentDetailCategoryBinding
     private lateinit var controller: NavController
-    private lateinit var categoryAdapter: CategoryAdapter
+    private lateinit var title: String
     private lateinit var bannerAdapter: BannerAdapter
     private lateinit var gridProductAdapter: GridProductAdapter
     private lateinit var horizontalProductAdapter: HorizontalProductAdapter
@@ -38,16 +38,28 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        binding = FragmentHomeBinding.inflate(layoutInflater)
+        binding = FragmentDetailCategoryBinding.inflate(layoutInflater)
         val mView = binding.root
         controller = findNavController()
 
-        //category
-        categoryAdapter = CategoryAdapter(GlobalHelper.categoryModelList, controller)
-        binding.categoryRV.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-        binding.categoryRV.adapter = categoryAdapter
-        categoryAdapter.notifyDataSetChanged()
+        title = arguments?.getString("content").toString()
+        binding.toolBar.title = title
+        binding.toolBar.setNavigationOnClickListener {
+            controller.popBackStack()
+        }
+
+        binding.toolBar.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.searchIcon -> {
+                    //todo icon in menu here
+
+                    return@setOnMenuItemClickListener true
+                }
+                else -> {
+                    return@setOnMenuItemClickListener false
+                }
+            }
+        }
 
         //banner
         bannerAdapter = BannerAdapter(GlobalHelper.listBannerModel)
