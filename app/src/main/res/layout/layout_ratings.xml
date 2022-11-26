@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rating"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lnRateRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvRating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.5"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="32sp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_rating_fill"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/tvTotalRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 đánh giá"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/lnRateRating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lnRatingProgress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalRating"
+        app:layout_constraintStart_toStartOf="@+id/lnRateRating"
+        app:layout_constraintEnd_toEndOf="@+id/lnRateRating">
+
+        <ProgressBar
+            android:id="@+id/progress_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginVertical="2dp"
+            android:max="100"
+            android:progress="50"
+            android:progressTint="@color/ratingGreen"/>
+
+        <ProgressBar
+            android:id="@+id/progress_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginVertical="2dp"
+            android:max="100"
+            android:progress="40"
+            android:progressTint="@color/ratingGreen"/>
+
+        <ProgressBar
+            android:id="@+id/progress_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginVertical="2dp"
+            android:max="100"
+            android:progress="30"
+            android:progressTint="@color/ratingYellow"/>
+
+        <ProgressBar
+            android:id="@+id/progress_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginVertical="2dp"
+            android:max="100"
+            android:progress="20"
+            android:progressTint="@color/ratingYellow"/>
+
+        <ProgressBar
+            android:id="@+id/progress_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginVertical="2dp"
+            android:max="100"
+            android:progress="10"
+            android:progressTint="@color/ratingRed"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toTopOf="@id/lnRatingProgress"
+        app:layout_constraintBottom_toBottomOf="@+id/lnRatingProgress"
+        app:layout_constraintEnd_toStartOf="@+id/lnRatingProgress">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginVertical="2dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="5"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="4dp"
+                android:textSize="13sp"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_rating_fill"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginVertical="2dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="4dp"
+                android:textSize="13sp"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_rating_fill"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginVertical="2dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="4dp"
+                android:textSize="13sp"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_rating_fill"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginVertical="2dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="4dp"
+                android:textSize="13sp"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_rating_fill"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginVertical="2dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="4dp"
+                android:textSize="13sp"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_rating_fill"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="@+id/lnRatingProgress"
+        app:layout_constraintBottom_toBottomOf="@+id/lnRatingProgress"
+        app:layout_constraintStart_toEndOf="@+id/lnRatingProgress">
+
+        <TextView
+            android:id="@+id/tvNumberRating_5"
+            android:layout_width="wrap_content"
+            android:layout_marginVertical="2dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="11"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextDefault"/>
+
+        <TextView
+            android:id="@+id/tvNumberRating_4"
+            android:layout_width="wrap_content"
+            android:layout_marginVertical="2dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="11"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextDefault"/>
+
+        <TextView
+            android:id="@+id/tvNumberRating_3"
+            android:layout_width="wrap_content"
+            android:layout_marginVertical="2dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="11"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextDefault"/>
+
+        <TextView
+            android:id="@+id/tvNumberRating_2"
+            android:layout_width="wrap_content"
+            android:layout_marginVertical="2dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="11"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextDefault"/>
+
+        <TextView
+            android:id="@+id/tvNumberRating_1"
+            android:layout_width="wrap_content"
+            android:layout_marginVertical="2dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="11"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextDefault"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/tvYourRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_rating"
+        android:textColor="@color/colorTextDefault"
+        app:layout_constraintTop_toBottomOf="@id/lnRatingProgress"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/starContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvYourRating"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/imgYourRating_1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+        <ImageView
+            android:id="@+id/imgYourRating_2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+        <ImageView
+            android:id="@+id/imgYourRating_3"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+        <ImageView
+            android:id="@+id/imgYourRating_4"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+        <ImageView
+            android:id="@+id/imgYourRating_5"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

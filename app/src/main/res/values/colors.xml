@@ -17,4 +17,9 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
+
+<!--    rating-->
+    <color name="ratingGreen">#03ff5b</color>
+    <color name="ratingYellow">#f2ff03</color>
+    <color name="ratingRed">#ff0328</color>
 </resources>

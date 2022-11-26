@@ -32,4 +32,11 @@
 
     <string name="deal_of_the_day">Deal hot trong ngày</string>
     <string name="view_all">Xem tất cả</string>
+
+<!--    rating-->
+    <string name="rating">Đánh giá</string>
+    <string name="your_rating">Đánh giá của bạn</string>
+
+<!--    cart-->
+    <string name="buy_now">Mua ngay</string>
 </resources>

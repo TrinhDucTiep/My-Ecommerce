@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_mainFragment_to_detailCategoryFragment"
             app:destination="@id/detailCategoryFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -114,5 +117,14 @@
         android:id="@+id/detailCategoryFragment"
         android:name="com.example.myecommerce.view.fragment.DetailCategoryFragment"
         android:label="fragment_detail_category"
-        tools:layout="@layout/fragment_detail_category" />
+        tools:layout="@layout/fragment_detail_category" >
+        <action
+            android:id="@+id/action_detailCategoryFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="com.example.myecommerce.view.fragment.homeChildFragments.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product" />
 </navigation>

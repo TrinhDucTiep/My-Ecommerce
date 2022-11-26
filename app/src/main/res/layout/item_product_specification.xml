@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_border_black_square"
+    android:padding="4dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvFeatureName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="feature name"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="8dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/tvFeatureValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="feature value"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

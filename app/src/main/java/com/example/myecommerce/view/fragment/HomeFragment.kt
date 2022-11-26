@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
 
         //deal of the day
         setListProductDealOfTheDay()
-        horizontalProductAdapter = HorizontalProductAdapter(listProductDealOfTheDay)
+        horizontalProductAdapter = HorizontalProductAdapter(listProductDealOfTheDay, controller)
         binding.hrDealOfTheDay.rvProduct.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.hrDealOfTheDay.rvProduct.adapter = horizontalProductAdapter
         horizontalProductAdapter.notifyDataSetChanged()
