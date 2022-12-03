@@ -33,10 +33,16 @@
     <string name="deal_of_the_day">Deal hot trong ngày</string>
     <string name="view_all">Xem tất cả</string>
 
-<!--    rating-->
+    <!--    rating-->
     <string name="rating">Đánh giá</string>
     <string name="your_rating">Đánh giá của bạn</string>
 
-<!--    cart-->
+    <!--    cart-->
     <string name="buy_now">Mua ngay</string>
+    <string name="buy">Mua hàng</string>
+    <string name="sum_billing">Tổng thanh toán</string>
+    <string name="all">Tất cả</string>
+    <string name="add_voucher_of_shop">Thêm mã giảm giá của shop</string>
+    <string name="my_cart">Giỏ hàng của tôi</string>
+    <string name="bought">Đã mua</string>
 </resources>

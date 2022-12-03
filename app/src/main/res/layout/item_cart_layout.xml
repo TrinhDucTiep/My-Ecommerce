@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:elevation="2dp"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lnShopName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_border_grey_square"
+        android:paddingVertical="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_shop"/>
+
+        <TextView
+            android:id="@+id/tvShopName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thế giới di động"
+            android:textSize="16sp"
+            android:layout_marginStart="24dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgProduct"
+        app:layout_constraintTop_toBottomOf="@+id/lnShopName"
+        app:layout_constraintBottom_toTopOf="@+id/tvAddShopVoucher"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@+id/checkbox"
+        app:layout_constraintBottom_toBottomOf="@id/checkbox"
+        app:layout_constraintStart_toEndOf="@+id/checkbox"/>
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="This is product's name ccccccccccccccccccccccccccccccccccccccccc"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/lnShopName"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvProductType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phân loại: Golden"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:paddingHorizontal="3dp"
+        android:background="@drawable/bg_corner_grey"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"/>
+
+    <TextView
+        android:id="@+id/tvProductOldPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="350$"
+        android:textColor="@color/colorTextDefault"
+        android:textSize="15sp"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvProductType"
+        app:layout_constraintStart_toEndOf="@id/imgProduct"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toStartOf="@+id/tvProductOldPrice"
+        app:layout_constraintEnd_toEndOf="@+id/tvProductOldPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvProductOldPrice"
+        app:layout_constraintBottom_toBottomOf="@id/tvProductOldPrice"
+        android:background="@color/colorTextDefault"/>
+
+    <TextView
+        android:id="@+id/tvProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="200$"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/tvProductOldPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvProductOldPrice"
+        app:layout_constraintBottom_toBottomOf="@+id/tvProductOldPrice"/>
+    
+    <com.travijuu.numberpicker.library.NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:min="1"
+        app:max="100000"
+        app:custom_layout="@layout/my_number_picker_layout"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductOldPrice"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"/>
+
+    <TextView
+        android:id="@+id/tvAddShopVoucher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_border_grey_square"
+        android:text="@string/add_voucher_of_shop"
+        android:textSize="16sp"
+        android:textColor="@color/colorTextDefault"
+        android:paddingStart="8dp"
+        android:paddingVertical="4dp"
+        app:drawableStartCompat="@drawable/ic_voucher"
+        android:drawablePadding="4dp"
+        app:drawableEndCompat="@drawable/ic_drop_right"
+        android:gravity="center_vertical"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/numberPicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imgTrash"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_trash"
+        app:tint="@color/black"
+        android:paddingHorizontal="6dp"
+        android:background="@drawable/bg_circle_corner_grey"
+        app:layout_constraintStart_toEndOf="@+id/numberPicker"
+        app:layout_constraintTop_toTopOf="@+id/numberPicker"
+        app:layout_constraintBottom_toBottomOf="@+id/numberPicker"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

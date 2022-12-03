@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.example.myecommerce.R
 import com.example.myecommerce.adapter.ProductDescAdapter
 import com.example.myecommerce.databinding.FragmentDetailProductBinding
@@ -16,6 +18,7 @@ class DetailProductFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailProductBinding
     private lateinit var productDescAdapter: ProductDescAdapter
+    private lateinit var controller: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,12 +26,23 @@ class DetailProductFragment : Fragment() {
     ): View {
         binding = FragmentDetailProductBinding.inflate(layoutInflater)
         val mView = binding.root
+        controller = findNavController()
         productDescAdapter = ProductDescAdapter(this)
         binding.layoutProductDesc.viewPagerProductDesc.adapter = productDescAdapter
 
         //favorite button
         binding.imgFavorite.setOnClickListener {
 
+        }
+
+        binding.toolBar.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.cartIcon -> {
+                    controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
+                    return@setOnMenuItemClickListener true
+                }
+                else -> return@setOnMenuItemClickListener false
+            }
         }
 
         //tab layout for description

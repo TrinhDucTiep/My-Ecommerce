@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="30dp"
+    android:orientation="horizontal"
+    android:padding="0dp"
+    android:background="@drawable/bg_circle_corner_grey">
+
+    <Button
+        android:id="@+id/decrement"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:padding="0dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="@color/colorTextDefault"
+        android:backgroundTint="@color/white"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:text="—"/>
+
+    <EditText
+        android:id="@+id/display"
+        android:layout_width="0dp"
+        android:layout_weight="7"
+        android:background="@drawable/bg_border_grey_square"
+        android:layout_height="match_parent"
+        android:text="1"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:focusable="false"
+        android:inputType="number"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        />
+    <Button
+        android:id="@+id/increment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:padding="0dp"
+        android:textSize="15sp"
+        android:layout_marginEnd="1dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="@color/colorTextDefault"
+        android:background="@null"
+        android:backgroundTint="@color/white"
+        android:text="+"/>
+</LinearLayout>

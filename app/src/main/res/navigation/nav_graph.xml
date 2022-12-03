@@ -126,5 +126,14 @@
         android:id="@+id/detailProductFragment"
         android:name="com.example.myecommerce.view.fragment.homeChildFragments.DetailProductFragment"
         android:label="fragment_detail_product"
-        tools:layout="@layout/fragment_detail_product" />
+        tools:layout="@layout/fragment_detail_product" >
+        <action
+            android:id="@+id/action_detailProductFragment_to_myCartFragment"
+            app:destination="@id/myCartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myCartFragment"
+        android:name="com.example.myecommerce.view.fragment.MyCartFragment"
+        android:label="fragment_my_cart"
+        tools:layout="@layout/fragment_my_cart" />
 </navigation>
