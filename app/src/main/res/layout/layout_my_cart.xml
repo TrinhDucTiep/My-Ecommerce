@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMyCart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lnBottom"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lnBottom"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:elevation="4dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true">
+
+        <CheckBox
+            android:id="@+id/checkboxAll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:textColor="@color/colorTextDefault"
+            android:text="@string/all"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="8dp"
+            android:background="@color/colorGrayBG"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.45"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSumBilling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sum_billing"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tvNumberSumBilling"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="250$"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="24sp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <TextView
+            android:id="@+id/tvBuy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="@string/buy"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

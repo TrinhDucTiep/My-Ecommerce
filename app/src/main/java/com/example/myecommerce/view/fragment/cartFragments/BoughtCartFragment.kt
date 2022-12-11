@@ -5,56 +5,44 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myecommerce.R
+import com.example.myecommerce.adapter.BoughtCartAdapter
+import com.example.myecommerce.adapter.CartAdapter
+import com.example.myecommerce.databinding.FragmentBoughtCartBinding
+import com.example.myecommerce.databinding.FragmentCartBinding
+import com.example.myecommerce.model.ItemBoughtCartProductModel
+import com.example.myecommerce.model.ItemCartProductModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [BoughtCartFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class BoughtCartFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentBoughtCartBinding
+    private lateinit var boughtCartAdapter: BoughtCartAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bought_cart, container, false)
+    ): View {
+        binding = FragmentBoughtCartBinding.inflate(layoutInflater)
+        val mView = binding.root
+
+        boughtCartAdapter = BoughtCartAdapter(getListCartItem())
+        binding.rlMyCartLayout.rvMyCart.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        binding.rlMyCartLayout.rvMyCart.adapter = boughtCartAdapter
+        binding.rlMyCartLayout.lnBottom.visibility = View.GONE
+
+        return mView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BoughtCartFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BoughtCartFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun getListCartItem() : MutableList<ItemBoughtCartProductModel>{
+        val listItemBoughtCartProductModel = mutableListOf<ItemBoughtCartProductModel>()
+        listItemBoughtCartProductModel.add(ItemBoughtCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Đã vận chuyển vào 11-11-2001", 5))
+        listItemBoughtCartProductModel.add(ItemBoughtCartProductModel("Mobile city", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Đã vận chuyển vào 11-11-2001", 5))
+        listItemBoughtCartProductModel.add(ItemBoughtCartProductModel("Siêu thị điện máy", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Đã vận chuyển vào 11-11-2001", 5))
+        listItemBoughtCartProductModel.add(ItemBoughtCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Đã vận chuyển vào 11-11-2001", 5))
+        listItemBoughtCartProductModel.add(ItemBoughtCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Đã vận chuyển vào 11-11-2001", 5))
+        listItemBoughtCartProductModel.add(ItemBoughtCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Đã vận chuyển vào 11-11-2001", 5))
+        return listItemBoughtCartProductModel
     }
+
 }

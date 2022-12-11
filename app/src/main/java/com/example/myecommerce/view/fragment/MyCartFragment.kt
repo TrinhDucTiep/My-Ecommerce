@@ -10,6 +10,7 @@ import com.example.myecommerce.R
 import com.example.myecommerce.adapter.CartAdapter
 import com.example.myecommerce.databinding.FragmentMyCartBinding
 import com.example.myecommerce.model.ItemCartProductModel
+import com.example.myecommerce.view.activity.MainActivity
 
 class MyCartFragment : Fragment() {
 
@@ -19,13 +20,13 @@ class MyCartFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMyCartBinding.inflate(layoutInflater)
         val mView = binding.root
         
         itemCartAdapter = CartAdapter(getListCartItem())
-        binding.rvMyCart.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
-        binding.rvMyCart.adapter = itemCartAdapter
+        binding.rlMyCartLayout.rvMyCart.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        binding.rlMyCartLayout.rvMyCart.adapter = itemCartAdapter
 
         return mView
     }

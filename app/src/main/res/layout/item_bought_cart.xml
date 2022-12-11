@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_marginBottom="16dp"
+    android:elevation="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lnShopName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_border_grey_square"
+        android:paddingVertical="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_shop"/>
+
+        <TextView
+            android:id="@+id/tvShopName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thế giới di động"
+            android:textSize="16sp"
+            android:layout_marginStart="24dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnShopName"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="This is product's name ccccccccccccccccccccccccccccccccccccccccc"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/lnShopName"
+        app:layout_constraintEnd_toStartOf="@+id/imgProduct"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:id="@+id/viewStatus"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@drawable/circle_green_status"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProductName"/>
+
+    <TextView
+        android:id="@+id/tvStatusDeliver"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Giao hàng thành công vào 11-11-2022"
+        android:textColor="@color/colorTextDefault"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/imgProduct"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toTopOf="@id/viewStatus"
+        app:layout_constraintBottom_toBottomOf="@id/viewStatus"
+        app:layout_constraintStart_toEndOf="@id/viewStatus"/>
+
+    <TextView
+        android:id="@+id/tvYourRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_rating"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/viewStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/starContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvYourRating">
+
+        <ImageView
+            android:id="@+id/imgYourRating_1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+        <ImageView
+            android:id="@+id/imgYourRating_2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+        <ImageView
+            android:id="@+id/imgYourRating_3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+        <ImageView
+            android:id="@+id/imgYourRating_4"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+        <ImageView
+            android:id="@+id/imgYourRating_5"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/ic_rating_fill"
+            app:tint="@color/colorGrayBG" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
