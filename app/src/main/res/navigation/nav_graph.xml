@@ -77,6 +77,14 @@
         <action
             android:id="@+id/action_mainFragment_to_detailProductFragment"
             app:destination="@id/detailProductFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_detailStatusOrderFragment"
+            app:destination="@id/detailStatusOrderFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -92,7 +100,11 @@
         android:id="@+id/cartFragment"
         android:name="com.example.myecommerce.view.fragment.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_detailStatusOrderFragment"
+            app:destination="@id/detailStatusOrderFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.myecommerce.view.fragment.ChatFragment"
@@ -136,4 +148,9 @@
         android:name="com.example.myecommerce.view.fragment.MyCartFragment"
         android:label="fragment_my_cart"
         tools:layout="@layout/fragment_my_cart" />
+    <fragment
+        android:id="@+id/detailStatusOrderFragment"
+        android:name="com.example.myecommerce.view.fragment.DetailStatusOrderFragment"
+        android:label="fragment_detail_status_order"
+        tools:layout="@layout/fragment_detail_status_order" />
 </navigation>

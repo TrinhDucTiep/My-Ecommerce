@@ -1,23 +1,23 @@
-package com.example.myecommerce.view.fragment.cartFragments
+package com.example.myecommerce.view.fragment.cartChildFragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myecommerce.R
 import com.example.myecommerce.adapter.BoughtCartAdapter
-import com.example.myecommerce.adapter.CartAdapter
 import com.example.myecommerce.databinding.FragmentBoughtCartBinding
-import com.example.myecommerce.databinding.FragmentCartBinding
 import com.example.myecommerce.model.ItemBoughtCartProductModel
-import com.example.myecommerce.model.ItemCartProductModel
 
 class BoughtCartFragment : Fragment() {
 
     private lateinit var binding: FragmentBoughtCartBinding
     private lateinit var boughtCartAdapter: BoughtCartAdapter
+    private lateinit var controller: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +25,9 @@ class BoughtCartFragment : Fragment() {
     ): View {
         binding = FragmentBoughtCartBinding.inflate(layoutInflater)
         val mView = binding.root
+        controller = findNavController()
 
-        boughtCartAdapter = BoughtCartAdapter(getListCartItem())
+        boughtCartAdapter = BoughtCartAdapter(getListCartItem(), controller)
         binding.rlMyCartLayout.rvMyCart.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         binding.rlMyCartLayout.rvMyCart.adapter = boughtCartAdapter
         binding.rlMyCartLayout.lnBottom.visibility = View.GONE

@@ -14,13 +14,19 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
-            android:background="@color/colorPrimary"
-            app:titleTextColor="@color/white"
+            android:background="@color/white"
+            app:titleTextColor="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/ToolBarPrimaryIconTheme"
             app:menu="@menu/detail_category_menu"
             app:navigationIcon="@drawable/ic_back_arrow">
         </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorPrimary"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/bannerViewPager"

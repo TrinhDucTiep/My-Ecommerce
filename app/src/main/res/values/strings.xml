@@ -5,6 +5,7 @@
     <string name="re_input_password">Nhập lại mật khẩu</string>
     <string name="sign_in">Đăng nhập</string>
     <string name="sign_up">Đăng ký</string>
+    <string name="sign_out">Đăng xuất</string>
     <string name="forgot_password">Quên mật khẩu?</string>
     <string name="dont_have_account">Chưa có tài khoản? Đăng ký</string>
     <string name="full_name">Họ tên</string>
@@ -45,4 +46,25 @@
     <string name="add_voucher_of_shop">Thêm mã giảm giá của shop</string>
     <string name="my_cart">Giỏ hàng của tôi</string>
     <string name="bought">Đã mua</string>
+
+<!--    order detail-->
+    <string name="code_order">Mã vận đơn</string>
+    <string name="deliver_by">Vận chuyển bởi %s</string>
+    <string name="order_successfully_and_wait_verify">Đặt hàng thành công, đang chờ người bán xác nhận</string>
+    <string name="seller_verified_and_packaging">Người bán đã xác nhận, đang chuẩn bị hàng</string>
+    <string name="seller_sent_and_shipping">Đã giao cho đơn vị vận chuyển, bắt đầu vận chuyển</string>
+    <string name="delivering">Đang giao hàng</string>
+    <string name="deliver_successfully">Giao hàng thành công</string>
+    <string name="follow_your_order">Theo dõi đơn của bạn</string>
+    <string name="shipper_info">Thông tin người giao hàng</string>
+
+<!--    fragment account-->
+    <string name="liked">Đã thích</string>
+    <string name="history">Lịch sử</string>
+    <string name="saw_recently">Đã xem gần đây</string>
+    <string name="voucher_store">Kho voucher</string>
+    <string name="setting_account">Thiết lập tài khoản</string>
+    <string name="yes">Có</string>
+    <string name="cancel">Huỷ</string>
+    <string name="want_to_sign_out">Bạn có muốn đăng xuất không?</string>
 </resources>

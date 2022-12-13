@@ -1,4 +1,4 @@
-package com.example.myecommerce.view.fragment.cartFragments
+package com.example.myecommerce.view.fragment.cartChildFragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

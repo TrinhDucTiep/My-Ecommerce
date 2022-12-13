@@ -1,10 +1,340 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.fragment.DetailStatusOrderFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/follow_your_order"
+        android:theme="@style/ToolBarPrimaryIconTheme"
+        app:navigationIcon="@drawable/ic_back_arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <View
+        android:id="@+id/viewUnderToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="This is product's name"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/imgProduct"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/iphone_14_pro_max_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewUnderToolBar"/>
+
+    <TextView
+        android:id="@+id/tvDeliverBranch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vận chuyển bởi VN Post Office"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/colorTextDefault"
+        app:layout_constraintTop_toBottomOf="@id/tvProductName"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvCodeOrderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/code_order"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDeliverBranch"/>
+
+    <TextView
+        android:id="@+id/tvCodeOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="129834712034"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/tvCodeOrderTitle"
+        app:layout_constraintTop_toTopOf="@id/tvCodeOrderTitle"
+        app:layout_constraintBottom_toBottomOf="@id/tvCodeOrderTitle"/>
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/ic_copy"
+        android:layout_marginStart="8dp"
+        app:tint="@color/colorPrimary"
+        android:padding="3dp"
+        android:background="@drawable/bg_border_grey_square"
+        app:layout_constraintStart_toEndOf="@id/tvCodeOrder"
+        app:layout_constraintTop_toTopOf="@id/tvCodeOrder"
+        app:layout_constraintBottom_toBottomOf="@id/tvCodeOrder"/>
+
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 sản phẩm"
+        android:textSize="16sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintEnd_toStartOf="@id/imgProduct"
+        app:layout_constraintBottom_toBottomOf="@id/imgProduct"/>
+
+    <View
+        android:id="@+id/viewUnderImgProduct"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/colorGrayBG"
+        app:layout_constraintTop_toBottomOf="@id/imgProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/viewCircleOrder"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/circle_green_status"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/viewUnderImgProduct"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:id="@+id/viewProgressVerifyAndPackage"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:background="@color/ratingGreen"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toTopOf="@id/viewCircleOrder"
+        app:layout_constraintStart_toStartOf="@id/viewCircleOrder"
+        app:layout_constraintEnd_toEndOf="@id/viewCircleOrder"/>
+
+    <View
+        android:id="@+id/viewCircleVerifyAndPackage"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/circle_green_status"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/viewProgressVerifyAndPackage"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:id="@+id/viewProgressShip"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:background="@color/ratingGreen"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toTopOf="@id/viewCircleVerifyAndPackage"
+        app:layout_constraintStart_toStartOf="@id/viewCircleVerifyAndPackage"
+        app:layout_constraintEnd_toEndOf="@id/viewCircleVerifyAndPackage"/>
+
+    <View
+        android:id="@+id/viewCircleShip"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/circle_green_status"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/viewProgressShip"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:id="@+id/viewProgressDeliver"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:background="@color/ratingGreen"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toTopOf="@id/viewCircleShip"
+        app:layout_constraintStart_toStartOf="@id/viewCircleShip"
+        app:layout_constraintEnd_toEndOf="@id/viewCircleShip"/>
+
+    <View
+        android:id="@+id/viewCircleDeliver"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/circle_green_status"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/viewProgressDeliver"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:id="@+id/viewProgressDeliverSuccessfully"
+        android:layout_width="3dp"
+        android:layout_height="80dp"
+        android:background="@color/ratingGreen"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toTopOf="@id/viewCircleDeliver"
+        app:layout_constraintStart_toStartOf="@id/viewCircleDeliver"
+        app:layout_constraintEnd_toEndOf="@id/viewCircleDeliver"/>
+
+    <View
+        android:id="@+id/viewCircleDeliverSuccessfully"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/circle_green_status"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/viewProgressDeliverSuccessfully"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvOrderSuccessfully"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_successfully_and_wait_verify"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/viewCircleOrder"
+        app:layout_constraintTop_toTopOf="@id/viewCircleOrder"
+        app:layout_constraintBottom_toBottomOf="@id/viewCircleOrder"/>
+
+    <TextView
+        android:id="@+id/tvDateOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 Tháng 11, 2022"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvOrderSuccessfully"
+        app:layout_constraintStart_toStartOf="@id/tvOrderSuccessfully"/>
+
+    <TextView
+        android:id="@+id/tvVerifyAndPackage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seller_verified_and_packaging"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/viewCircleVerifyAndPackage"
+        app:layout_constraintTop_toTopOf="@id/viewCircleVerifyAndPackage"
+        app:layout_constraintBottom_toBottomOf="@id/viewCircleVerifyAndPackage"/>
+
+    <TextView
+        android:id="@+id/tvDateVerifyAndPackage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 Tháng 11, 2022"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvVerifyAndPackage"
+        app:layout_constraintStart_toStartOf="@id/tvVerifyAndPackage"/>
+
+    <TextView
+        android:id="@+id/tvShipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seller_sent_and_shipping"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/viewCircleShip"
+        app:layout_constraintTop_toTopOf="@id/viewCircleShip"
+        app:layout_constraintBottom_toBottomOf="@id/viewCircleShip"/>
+
+    <TextView
+        android:id="@+id/tvDateShipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 Tháng 11, 2022"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvShipping"
+        app:layout_constraintStart_toStartOf="@id/tvShipping"/>
+
+    <TextView
+        android:id="@+id/tvDelivering"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delivering"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/viewCircleDeliver"
+        app:layout_constraintTop_toTopOf="@id/viewCircleDeliver"
+        app:layout_constraintBottom_toBottomOf="@id/viewCircleDeliver"/>
+
+    <TextView
+        android:id="@+id/tvDateDelivering"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 Tháng 11, 2022"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvDelivering"
+        app:layout_constraintStart_toStartOf="@id/tvDelivering"/>
+
+    <TextView
+        android:id="@+id/tvDeliverSuccessfully"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deliver_successfully"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/viewCircleDeliverSuccessfully"
+        app:layout_constraintTop_toTopOf="@id/viewCircleDeliverSuccessfully"
+        app:layout_constraintBottom_toBottomOf="@id/viewCircleDeliverSuccessfully"/>
+
+    <TextView
+        android:id="@+id/tvDateDeliverSuccessfully"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 Tháng 11, 2022"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvDeliverSuccessfully"
+        app:layout_constraintStart_toStartOf="@id/tvDeliverSuccessfully"/>
+
+    <TextView
+        android:id="@+id/tvShipperInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shipper_info"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/viewCircleDeliverSuccessfully"
+        android:layout_marginTop="48dp"/>
+
+    <TextView
+        android:id="@+id/tvShipperName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lê Đức Thắng"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvShipperInfoTitle"/>
+
+    <TextView
+        android:id="@+id/tvShipperPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0123456789"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvShipperName"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

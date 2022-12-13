@@ -1,9 +1,11 @@
 package com.example.myecommerce.view.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
@@ -34,6 +36,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var timer: CountDownTimer
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,6 +73,9 @@ class HomeFragment : Fragment() {
         //grid layout
         gridProductAdapter = GridProductAdapter(listProductDealOfTheDay)
         binding.gridViewProduct.gridViewProduct.adapter = gridProductAdapter
+        binding.gridViewProduct.gridViewProduct.setOnTouchListener { v, event ->
+            event.action == MotionEvent.ACTION_MOVE
+        }
 
         return mView
     }

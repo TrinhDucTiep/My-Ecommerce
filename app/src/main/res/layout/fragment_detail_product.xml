@@ -11,15 +11,22 @@
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
+        android:background="@color/white"
         app:menu="@menu/detail_product_menu"
-        android:theme="@style/ToolBarTheme"
+        android:theme="@style/ToolBarPrimaryIconTheme"
         app:navigationIcon="@drawable/ic_back_arrow"/>
+
+    <View
+        android:id="@+id/viewUnderToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/toolBar"/>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
-        android:layout_below="@+id/toolBar"
+        android:layout_below="@+id/viewUnderToolBar"
         android:layout_above="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="0dp">
@@ -52,7 +59,7 @@
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="200$"
+                android:text="200.000đ"
                 android:textColor="@color/colorPrimary"
                 android:textSize="23sp"
                 android:layout_marginStart="16dp"
@@ -64,7 +71,7 @@
                 android:id="@+id/tvOldPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="350$"
+                android:text="350.000đ"
                 android:textColor="@color/colorTextDefault"
                 android:textSize="20sp"
                 android:layout_marginStart="16dp"
@@ -81,6 +88,12 @@
                 app:layout_constraintTop_toTopOf="@+id/tvOldPrice"
                 app:layout_constraintBottom_toBottomOf="@id/tvOldPrice"
                 android:background="@color/colorTextDefault"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/colorGrayBG"
+                app:layout_constraintBottom_toTopOf="@id/layoutProductDesc"/>
 
             <LinearLayout
                 android:id="@+id/lnRating"

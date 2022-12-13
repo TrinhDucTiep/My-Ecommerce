@@ -2,8 +2,8 @@ package com.example.myecommerce.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.myecommerce.view.fragment.cartFragments.AllCartFragment
-import com.example.myecommerce.view.fragment.cartFragments.BoughtCartFragment
+import com.example.myecommerce.view.fragment.cartChildFragments.AllCartFragment
+import com.example.myecommerce.view.fragment.cartChildFragments.BoughtCartFragment
 
 class CartTabLayoutAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {

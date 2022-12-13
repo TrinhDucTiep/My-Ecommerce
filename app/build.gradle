@@ -77,4 +77,7 @@ dependencies {
 
     //number picker for item product in cart
     implementation 'com.github.travijuu:numberpicker:1.0.7'
+
+    //avatar lib
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

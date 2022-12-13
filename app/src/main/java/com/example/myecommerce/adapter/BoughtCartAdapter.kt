@@ -5,12 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myecommerce.R
 import com.example.myecommerce.model.ItemBoughtCartProductModel
 import com.example.myecommerce.model.ItemCartProductModel
+import com.example.myecommerce.view.fragment.CartFragment
 
-class BoughtCartAdapter(var listItemBoughtCartProductModel: MutableList<ItemBoughtCartProductModel>) : RecyclerView.Adapter<BoughtCartViewHolder>() {
+class BoughtCartAdapter(var listItemBoughtCartProductModel: MutableList<ItemBoughtCartProductModel>, var controller: NavController) : RecyclerView.Adapter<BoughtCartViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoughtCartViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_bought_cart, parent, false)
         return BoughtCartViewHolder(view)
@@ -23,6 +26,10 @@ class BoughtCartAdapter(var listItemBoughtCartProductModel: MutableList<ItemBoug
         holder.imgProduct.setImageResource(itemBoughtCartProductModel.productImage)
         holder.tvProductName.text = itemBoughtCartProductModel.productName
         //todo: còn status view, tv product status, rating là chưa set đến
+
+        holder.itemView.setOnClickListener {
+            controller.navigate(R.id.action_mainFragment_to_detailStatusOrderFragment)
+        }
     }
 
     override fun getItemCount(): Int {
