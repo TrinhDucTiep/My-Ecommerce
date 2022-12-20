@@ -10,16 +10,16 @@ interface GlobalHelper {
         const val emailPattern = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}\$"
 
         val categoryModelList = mutableListOf<CategoryModel>(
-            CategoryModel("link", "Home"),
-            CategoryModel("link", "Electronics"),
-            CategoryModel("link", "Appliances"),
-            CategoryModel("link", "Furniture"),
-            CategoryModel("link", "Fashion"),
-            CategoryModel("link", "Toys"),
-            CategoryModel("link", "Sports"),
-            CategoryModel("link", "Wall Arts"),
-            CategoryModel("link", "Books"),
-            CategoryModel("link", "Shoes"),
+            CategoryModel("link", "Trang chủ"),
+            CategoryModel("link", "Đồ điện tử"),
+            CategoryModel("link", "Đồ gia dụng"),
+            CategoryModel("link", "Nội thất"),
+            CategoryModel("link", "Thời trang"),
+            CategoryModel("link", "Đồ chơi"),
+            CategoryModel("link", "Thể thao"),
+            CategoryModel("link", "Đồ nghệ thuật"),
+            CategoryModel("link", "Sách"),
+            CategoryModel("link", "Giày dép"),
         )
 
         val listBannerModel = mutableListOf<BannerModel>(

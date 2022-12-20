@@ -19,6 +19,11 @@
         <item name="tint">@color/colorPrimary</item>
     </style>
 
+    <style name="ToolBarBlackIconTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="iconTint">@color/colorDarkBG</item>
+        <item name="tint">@color/colorDarkBG</item>
+    </style>
+
     <style name="customTabLayout" parent="Widget.Design.TabLayout">
         <item name="tabTextAppearance">@style/TabTextAppearance</item>
     </style>

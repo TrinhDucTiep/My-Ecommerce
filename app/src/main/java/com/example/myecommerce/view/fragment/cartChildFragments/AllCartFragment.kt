@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myecommerce.R
 import com.example.myecommerce.adapter.CartAdapter
@@ -15,6 +17,7 @@ class AllCartFragment : Fragment() {
 
     private lateinit var binding: FragmentAllCartBinding
     private lateinit var itemCartAdapter: CartAdapter
+    private lateinit var controller: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,10 +26,16 @@ class AllCartFragment : Fragment() {
 
         binding = FragmentAllCartBinding.inflate(layoutInflater)
         val mView = binding.root
+        controller = findNavController()
 
         itemCartAdapter = CartAdapter(getListCartItem())
         binding.rlMyCartLayout.rvMyCart.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         binding.rlMyCartLayout.rvMyCart.adapter = itemCartAdapter
+
+        //navigate to add address fragment
+        binding.rlMyCartLayout.tvBuy.setOnClickListener {
+            controller.navigate(R.id.action_mainFragment_to_addAddressFragment)
+        }
 
         return mView
     }

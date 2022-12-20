@@ -47,7 +47,7 @@
     <string name="my_cart">Giỏ hàng của tôi</string>
     <string name="bought">Đã mua</string>
 
-<!--    order detail-->
+    <!--    order detail-->
     <string name="code_order">Mã vận đơn</string>
     <string name="deliver_by">Vận chuyển bởi %s</string>
     <string name="order_successfully_and_wait_verify">Đặt hàng thành công, đang chờ người bán xác nhận</string>
@@ -58,7 +58,7 @@
     <string name="follow_your_order">Theo dõi đơn của bạn</string>
     <string name="shipper_info">Thông tin người giao hàng</string>
 
-<!--    fragment account-->
+    <!--    fragment account-->
     <string name="liked">Đã thích</string>
     <string name="history">Lịch sử</string>
     <string name="saw_recently">Đã xem gần đây</string>
@@ -67,4 +67,12 @@
     <string name="yes">Có</string>
     <string name="cancel">Huỷ</string>
     <string name="want_to_sign_out">Bạn có muốn đăng xuất không?</string>
+
+<!--    add address-->
+    <string name="add_address">Thêm địa chỉ</string>
+    <string name="province_city">Tỉnh/thành phố</string>
+    <string name="distric">Quận/huyện</string>
+    <string name="street">Đường/xã</string>
+    <string name="home_address">Địa chỉ nhà</string>
+    <string name="save_address">Lưu địa chỉ</string>
 </resources>

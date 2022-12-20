@@ -69,9 +69,6 @@
             android:id="@+id/action_mainFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_testFragment"
-            app:destination="@id/testFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_detailCategoryFragment"
             app:destination="@id/detailCategoryFragment" />
         <action
@@ -85,6 +82,9 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_mainFragment_to_addAddressFragment"
+            app:destination="@id/addAddressFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -121,11 +121,6 @@
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
     <fragment
-        android:id="@+id/testFragment"
-        android:name="com.example.myecommerce.view.fragment.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
-    <fragment
         android:id="@+id/detailCategoryFragment"
         android:name="com.example.myecommerce.view.fragment.DetailCategoryFragment"
         android:label="fragment_detail_category"
@@ -153,4 +148,9 @@
         android:name="com.example.myecommerce.view.fragment.DetailStatusOrderFragment"
         android:label="fragment_detail_status_order"
         tools:layout="@layout/fragment_detail_status_order" />
+    <fragment
+        android:id="@+id/addAddressFragment"
+        android:name="com.example.myecommerce.view.fragment.AddAddressFragment"
+        android:label="fragment_add_address"
+        tools:layout="@layout/fragment_add_address" />
 </navigation>

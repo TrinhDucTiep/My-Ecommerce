@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:background="@color/white"
-            app:titleTextColor="@color/colorPrimary"
+            app:titleTextColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/ToolBarPrimaryIconTheme"
@@ -25,7 +25,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
+            android:layout_height="0.1dp"
             android:background="@color/colorPrimary"/>
 
         <androidx.viewpager2.widget.ViewPager2
