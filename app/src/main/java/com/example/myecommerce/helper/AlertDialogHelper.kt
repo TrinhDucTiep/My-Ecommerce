@@ -15,7 +15,7 @@ class AlertDialogHelper {
                 .setMessage(message)
                 .setIcon(icon)
                 .setPositiveButton(R.string.yes){
-                        dialog, which ->
+                        _, _ ->
                     run {
                         if (okCallBack != null){
                             okCallBack.invoke()
@@ -23,7 +23,7 @@ class AlertDialogHelper {
                     }
                 }
                 .setNegativeButton(R.string.cancel){
-                        dialog, which ->
+                        dialog, _ ->
                     run {
                         dialog.dismiss()
                     }

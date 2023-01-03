@@ -68,11 +68,12 @@
     <string name="cancel">Huỷ</string>
     <string name="want_to_sign_out">Bạn có muốn đăng xuất không?</string>
 
-<!--    add address-->
+    <!--    add address-->
     <string name="add_address">Thêm địa chỉ</string>
     <string name="province_city">Tỉnh/thành phố</string>
     <string name="distric">Quận/huyện</string>
     <string name="street">Đường/xã</string>
     <string name="home_address">Địa chỉ nhà</string>
     <string name="save_address">Lưu địa chỉ</string>
+    <string name="address">Địa chỉ</string>
 </resources>

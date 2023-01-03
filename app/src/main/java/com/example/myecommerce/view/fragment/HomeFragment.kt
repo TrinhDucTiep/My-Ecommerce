@@ -73,7 +73,7 @@ class HomeFragment : Fragment() {
         //grid layout
         gridProductAdapter = GridProductAdapter(listProductDealOfTheDay)
         binding.gridViewProduct.gridViewProduct.adapter = gridProductAdapter
-        binding.gridViewProduct.gridViewProduct.setOnTouchListener { v, event ->
+        binding.gridViewProduct.gridViewProduct.setOnTouchListener { _, event ->
             event.action == MotionEvent.ACTION_MOVE
         }
 

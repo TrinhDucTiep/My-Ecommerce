@@ -34,7 +34,7 @@ class AllCartFragment : Fragment() {
 
         //navigate to add address fragment
         binding.rlMyCartLayout.tvBuy.setOnClickListener {
-            controller.navigate(R.id.action_mainFragment_to_addAddressFragment)
+            controller.navigate(R.id.action_mainFragment_to_listAddressFragment)
         }
 
         return mView

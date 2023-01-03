@@ -83,8 +83,8 @@
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true"/>
         <action
-            android:id="@+id/action_mainFragment_to_addAddressFragment"
-            app:destination="@id/addAddressFragment" />
+            android:id="@+id/action_mainFragment_to_listAddressFragment"
+            app:destination="@id/listAddressFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -153,4 +153,13 @@
         android:name="com.example.myecommerce.view.fragment.AddAddressFragment"
         android:label="fragment_add_address"
         tools:layout="@layout/fragment_add_address" />
+    <fragment
+        android:id="@+id/listAddressFragment"
+        android:name="com.example.myecommerce.view.fragment.ListAddressFragment"
+        android:label="fragment_list_address"
+        tools:layout="@layout/fragment_list_address" >
+        <action
+            android:id="@+id/action_listAddressFragment_to_addAddressFragment"
+            app:destination="@id/addAddressFragment" />
+    </fragment>
 </navigation>

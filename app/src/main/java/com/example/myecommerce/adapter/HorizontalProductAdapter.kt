@@ -13,10 +13,12 @@ import com.example.myecommerce.R
 import com.example.myecommerce.model.HorizontalProductModel
 import com.example.myecommerce.view.fragment.HomeFragment
 
-class HorizontalProductAdapter(var listHorizontalProductModel: MutableList<HorizontalProductModel>, var navController: NavController) : RecyclerView.Adapter<HorizontalProductAdapter.ViewHolder>(){
+class HorizontalProductAdapter(
+    var listHorizontalProductModel: MutableList<HorizontalProductModel>,
+                               var navController: NavController) : RecyclerView.Adapter<HorizontalProductAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.item_product_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product_layout, parent, false)
         return ViewHolder(view)
     }
 
