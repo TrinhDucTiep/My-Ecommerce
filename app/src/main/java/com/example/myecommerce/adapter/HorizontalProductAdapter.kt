@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentController
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myecommerce.R
 import com.example.myecommerce.model.HorizontalProductModel
 import com.example.myecommerce.view.fragment.HomeFragment
@@ -23,10 +24,12 @@ class HorizontalProductAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.productImage.setImageResource(listHorizontalProductModel.get(position).productImage)
-        holder.productName.text = listHorizontalProductModel.get(position).productName
-        holder.productDesc.text = listHorizontalProductModel.get(position).productDesc
-        holder.productPrice.text = listHorizontalProductModel.get(position).productPrice
+        val horizontalProductModel = listHorizontalProductModel.get(position)
+//        holder.productImage.setImageResource(listHorizontalProductModel.get(position).productImage)
+        Glide.with(holder.itemView.context).load(horizontalProductModel.productImage).placeholder(R.drawable.ic_home).into(holder.productImage)
+        holder.productName.text = horizontalProductModel.productName
+        holder.productDesc.text = horizontalProductModel.productDesc
+        holder.productPrice.text = horizontalProductModel.productPrice
 
         holder.itemView.setOnClickListener {
             navController.navigate(R.id.detailProductFragment)

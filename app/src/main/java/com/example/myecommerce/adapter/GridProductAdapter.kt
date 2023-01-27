@@ -27,10 +27,10 @@ class GridProductAdapter(var listProduct: MutableList<HorizontalProductModel>) :
         val mView: View;
         if(convertView == null){
             mView = LayoutInflater.from(parent?.context).inflate(R.layout.item_product_layout, null)
-            mView.findViewById<ImageView>(R.id.imgProduct).setImageResource(listProduct.get(position).productImage)
-            mView.findViewById<TextView>(R.id.tvProductName).text = listProduct.get(position).productName
-            mView.findViewById<TextView>(R.id.tvProductDesc).text = listProduct.get(position).productDesc
-            mView.findViewById<TextView>(R.id.tvProductPrice).text = listProduct.get(position).productPrice
+//            mView.findViewById<ImageView>(R.id.imgProduct).setImageResource(listProduct.get(position).productImage) //todo: sửa sau
+//            mView.findViewById<TextView>(R.id.tvProductName).text = listProduct.get(position).productName
+//            mView.findViewById<TextView>(R.id.tvProductDesc).text = listProduct.get(position).productDesc
+//            mView.findViewById<TextView>(R.id.tvProductPrice).text = listProduct.get(position).productPrice
         }else{
             mView = convertView
         }

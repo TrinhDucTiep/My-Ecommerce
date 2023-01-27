@@ -1,5 +1,6 @@
 package com.example.myecommerce.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myecommerce.R
 import com.example.myecommerce.model.CategoryModel
 import com.example.myecommerce.view.fragment.MainFragmentDirections
@@ -22,12 +24,15 @@ class CategoryAdapter(private var categoryModelList : MutableList<CategoryModel>
     }
 
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
-        val content = categoryModelList.get(position).categoryContent
-        holder.categoryContent.text = content
+        val categoryModel = categoryModelList.get(position)
+        holder.categoryContent.text = categoryModel.categoryContent
 //        holder.categoryImageView = categoryModelList.get(position).categoryIconLink
+        if (!categoryModel.categoryIconLink.equals("null")) {
+            Glide.with(holder.itemView.context).load(categoryModel.categoryIconLink).placeholder(R.drawable.ic_home).into(holder.categoryImageView)
+        }
 
-        if(position != 0){
-            val bundle = bundleOf("content" to content)
+        if (categoryModel.index != 1) {
+            val bundle = bundleOf("content" to categoryModel.categoryContent)
             holder.itemView.setOnClickListener {
                 controller.navigate(R.id.action_mainFragment_to_detailCategoryFragment, bundle)
             }

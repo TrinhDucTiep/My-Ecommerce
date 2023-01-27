@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myecommerce.R
 import com.example.myecommerce.model.BannerModel
 
@@ -17,7 +18,8 @@ class BannerAdapter(var listBannerModel: MutableList<BannerModel>) : RecyclerVie
 
     override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
         val bannerModel = listBannerModel.get(position)
-        holder.imgBanner.setImageResource(bannerModel.bannerId)
+//        holder.imgBanner.setImageResource(bannerModel.bannerId)
+        Glide.with(holder.itemView.context).load(bannerModel.bannerLink).placeholder(R.drawable.ic_home).into(holder.imgBanner)
     }
 
     override fun getItemCount(): Int {
