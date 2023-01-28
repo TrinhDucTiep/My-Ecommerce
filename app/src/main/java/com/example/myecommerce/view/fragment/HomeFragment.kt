@@ -1,6 +1,7 @@
 package com.example.myecommerce.view.fragment
 
 import android.annotation.SuppressLint
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -64,6 +65,13 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         val mView = binding.root
         controller = findNavController()
+
+        // set nointernet place holder
+        if (!GlobalHelper.isNetworkAvailable(requireContext())) {
+            binding.phNoInternet.root.visibility = View.VISIBLE
+        } else {
+            binding.phNoInternet.root.visibility = View.GONE
+        }
 
         //category
 //        if (listCategoryModel.size == 0)
