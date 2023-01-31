@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myecommerce.R
 import com.example.myecommerce.model.ProductSpecModel
 
-class ProductSpecAdapter(var listProductSpecModel: MutableList<ProductSpecModel>): RecyclerView.Adapter<ProductSpecViewHolder>() {
+class ProductSpecAdapter(var listTitle: MutableList<String>?, var listValue: MutableList<String>?): RecyclerView.Adapter<ProductSpecViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductSpecViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product_specification, parent, false)
@@ -16,12 +16,13 @@ class ProductSpecAdapter(var listProductSpecModel: MutableList<ProductSpecModel>
     }
 
     override fun onBindViewHolder(holder: ProductSpecViewHolder, position: Int) {
-        holder.featureName.text = listProductSpecModel.get(position).featureName
-        holder.featureValue.text = listProductSpecModel.get(position).featureValue
+        holder.featureName.text = listTitle?.get(position)
+        holder.featureValue.text = listValue?.get(position)
     }
 
     override fun getItemCount(): Int {
-        return listProductSpecModel.size
+        if (listTitle.isNullOrEmpty()) return 0
+        return listTitle?.size!!
     }
 
 }

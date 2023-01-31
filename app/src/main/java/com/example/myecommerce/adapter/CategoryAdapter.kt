@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -26,16 +27,17 @@ class CategoryAdapter(private var categoryModelList : MutableList<CategoryModel>
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         val categoryModel = categoryModelList.get(position)
         holder.categoryContent.text = categoryModel.categoryContent
-//        holder.categoryImageView = categoryModelList.get(position).categoryIconLink
-        if (!categoryModel.categoryIconLink.equals("null")) {
+//        if (!categoryModel.categoryIconLink.equals("null") && !categoryModel.categoryIconLink.isNullOrEmpty()) {
             Glide.with(holder.itemView.context).load(categoryModel.categoryIconLink).placeholder(R.drawable.ic_home).into(holder.categoryImageView)
-        }
-
+//        }
+        Log.d("check_size", "onBindViewHolder: " + categoryModelList.size)
         if (categoryModel.index != 1) {
             val bundle = bundleOf("content" to categoryModel.categoryContent)
             holder.itemView.setOnClickListener {
                 controller.navigate(R.id.action_mainFragment_to_detailCategoryFragment, bundle)
             }
+        } else {
+            holder.itemView.isEnabled = false
         }
     }
 

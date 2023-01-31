@@ -37,4 +37,34 @@ class BannerViewModel : ViewModel() {
                 Log.d("error_firestore", "get bannerfromfirestore -> bannerViewModel " + it)
             }
     }
+
+    fun loadCategoryBanners(
+        bannerAdapter: BannerAdapter,
+        listBannerModel: MutableList<BannerModel>,
+        indicatorUpdate: () -> Unit,
+        categoryStrID: String
+        ) {
+        firestore.collection("CATEGORIES")
+            .document(categoryStrID)
+            .collection("TOP_DEALS")
+            .orderBy("index")
+            .get()
+            .addOnSuccessListener {  document ->
+                for (documentSnapshot in document) {
+                    when (documentSnapshot.get("view_type").toString().toInt()) {
+                        0 -> {
+                            val countBanner: Int = documentSnapshot.get("sum_of_banners").toString().toInt()
+                            for (i in 1..countBanner) {
+                                listBannerModel.add(BannerModel(documentSnapshot.get("banner_" + i) as String))
+                            }
+                        }
+                    }
+                }
+                bannerAdapter.notifyDataSetChanged()
+                indicatorUpdate.invoke()
+            }
+            .addOnFailureListener {
+                Log.d("error_firestore", "get bannerfromfirestore -> bannerViewModel " + it)
+            }
+    }
 }

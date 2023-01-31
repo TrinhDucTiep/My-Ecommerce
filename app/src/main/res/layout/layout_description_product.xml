@@ -18,23 +18,24 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Destcription"/>
+            android:text="@string/description"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Specification"/>
+            android:text="@string/specification"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Other detail"/>
+            android:text="@string/other"/>
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerProductDesc"
         android:layout_width="match_parent"
+        android:padding="16dp"
         android:layout_height="400dp"/>
 
 </LinearLayout>

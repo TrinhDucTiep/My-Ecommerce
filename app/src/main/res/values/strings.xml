@@ -77,4 +77,11 @@
     <string name="home_address">Địa chỉ nhà</string>
     <string name="save_address">Lưu địa chỉ</string>
     <string name="address">Địa chỉ</string>
+
+<!--    detail product fragment-->
+    <string name="sold">Đã bán %s</string>
+    <string name="description">Mô tả</string>
+    <string name="specification">Đặc điểm</string>
+    <string name="other">Khác</string>
+
 </resources>

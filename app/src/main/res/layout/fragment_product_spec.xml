@@ -6,6 +6,7 @@
     tools:context=".view.fragment.productDesc.ProductSpecFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSpec"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

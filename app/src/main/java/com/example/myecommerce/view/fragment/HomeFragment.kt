@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.example.myecommerce.R
@@ -32,7 +33,7 @@ import com.example.myecommerce.viewmodel.DealOfTheDayViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var controller: NavController
@@ -66,6 +67,9 @@ class HomeFragment : Fragment() {
         val mView = binding.root
         controller = findNavController()
 
+        //swipe refresh
+        binding.swipeRefreshLayout.setOnRefreshListener(this)
+
         // set nointernet place holder
         if (!GlobalHelper.isNetworkAvailable(requireContext())) {
             binding.phNoInternet.root.visibility = View.VISIBLE
@@ -74,25 +78,16 @@ class HomeFragment : Fragment() {
         }
 
         //category
-//        if (listCategoryModel.size == 0)
-            setUpCategory()
+        setUpCategory()
 
         //banner
-//        if (listBannerModel.size == 0)
-            setUpBanner()
+        setUpBanner()
 
         //auto pager for banners
-//        if (listProductDealOfTheDay.size == 0)
-            setUpAutoPager()
+        setUpAutoPager()
 
         //deal of the day
-        dealOfTheDayViewModel = ViewModelProvider(this).get(DealOfTheDayViewModel::class.java)
-        listProductDealOfTheDay = mutableListOf()
-        horizontalProductAdapter = HorizontalProductAdapter(listProductDealOfTheDay, controller)
-        dealOfTheDayViewModel.loadHomePageDealOfTheDay(listProductDealOfTheDay, horizontalProductAdapter)
-        binding.hrDealOfTheDay.rvProduct.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-        binding.hrDealOfTheDay.rvProduct.adapter = horizontalProductAdapter
-        horizontalProductAdapter.notifyDataSetChanged()
+        setUpDealOfTheDay()
 
         //grid layout
         gridProductAdapter = GridProductAdapter(listProductDealOfTheDay)
@@ -110,6 +105,7 @@ class HomeFragment : Fragment() {
         bannerAdapter = BannerAdapter(listBannerModel)
         bannerViewModel.loadHomePageBanners(bannerAdapter, listBannerModel) {
             binding.bannerIndicator.setViewPager(binding.bannerViewPager)
+            binding.swipeRefreshLayout.isRefreshing = false
         }
         compositePageTransformer = CompositePageTransformer()
         binding.bannerViewPager.adapter = bannerAdapter
@@ -145,18 +141,23 @@ class HomeFragment : Fragment() {
         categoryViewModel.loadCategoryFromFirestore(categoryAdapter, listCategoryModel)
     }
 
-//    fun setListProductDealOfTheDay(){
-//        listProductDealOfTheDay = mutableListOf()
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//        listProductDealOfTheDay.add(HorizontalProductModel(R.drawable.iphone_14_pro_max_purple, "Ihone 14 pro max purple", "Apple A14", "23.350.000 đ"))
-//    }
+    fun setUpDealOfTheDay() {
+        dealOfTheDayViewModel = ViewModelProvider(this).get(DealOfTheDayViewModel::class.java)
+        listProductDealOfTheDay = mutableListOf()
+        horizontalProductAdapter = HorizontalProductAdapter(listProductDealOfTheDay, controller)
+        dealOfTheDayViewModel.loadHomePageDealOfTheDay(listProductDealOfTheDay, horizontalProductAdapter)
+        binding.hrDealOfTheDay.rvProduct.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        binding.hrDealOfTheDay.rvProduct.adapter = horizontalProductAdapter
+        horizontalProductAdapter.notifyDataSetChanged()
+    }
+
+    override fun onRefresh() {
+        setUpCategory()
+        setUpBanner()
+        setUpAutoPager()
+        setUpDealOfTheDay()
+        //todo còn thiếu grid layout
+        binding.swipeRefreshLayout.isRefreshing = true
+    }
 
 }
