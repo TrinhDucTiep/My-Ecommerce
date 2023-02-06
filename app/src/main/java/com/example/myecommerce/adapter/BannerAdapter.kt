@@ -18,7 +18,7 @@ class BannerAdapter(var listBannerModel: MutableList<BannerModel>) : RecyclerVie
 
     override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
         val bannerModel = listBannerModel.get(position)
-        Glide.with(holder.itemView.context).load(bannerModel.bannerLink).placeholder(R.drawable.ic_home).into(holder.imgBanner)
+        Glide.with(holder.itemView.context).load(bannerModel.bannerLink).placeholder(R.drawable.img_placeholder).into(holder.imgBanner)
     }
 
     override fun getItemCount(): Int {

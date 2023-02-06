@@ -28,9 +28,9 @@ class CategoryAdapter(private var categoryModelList : MutableList<CategoryModel>
         val categoryModel = categoryModelList.get(position)
         holder.categoryContent.text = categoryModel.categoryContent
 //        if (!categoryModel.categoryIconLink.equals("null") && !categoryModel.categoryIconLink.isNullOrEmpty()) {
-            Glide.with(holder.itemView.context).load(categoryModel.categoryIconLink).placeholder(R.drawable.ic_home).into(holder.categoryImageView)
+        Glide.with(holder.itemView.context).load(categoryModel.categoryIconLink).placeholder(R.drawable.ic_home).into(holder.categoryImageView)
 //        }
-        Log.d("check_size", "onBindViewHolder: " + categoryModelList.size)
+
         if (categoryModel.index != 1) {
             val bundle = bundleOf("content" to categoryModel.categoryContent)
             holder.itemView.setOnClickListener {

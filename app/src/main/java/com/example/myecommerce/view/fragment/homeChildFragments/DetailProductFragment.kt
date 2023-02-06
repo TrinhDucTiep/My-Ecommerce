@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.myecommerce.R
 import com.example.myecommerce.adapter.ImageProductAdapter
 import com.example.myecommerce.adapter.ProductDescAdapter
@@ -19,10 +19,11 @@ import com.example.myecommerce.model.DetailProductModel
 import com.example.myecommerce.viewmodel.DetailProductViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
-class DetailProductFragment : Fragment() {
+class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var binding: FragmentDetailProductBinding
     private lateinit var controller: NavController
+    private var productId = ""
 
     //adapter
     private lateinit var productDescAdapter: ProductDescAdapter
@@ -39,12 +40,21 @@ class DetailProductFragment : Fragment() {
         binding = FragmentDetailProductBinding.inflate(layoutInflater)
         val mView = binding.root
         controller = findNavController()
+        productId = arguments?.getString("product_id").toString()
+
+        //back
+        binding.toolBar.setNavigationOnClickListener {
+            controller.popBackStack()
+        }
+
+        //swipe refresh
+        binding.swipeRefreshLayout.setOnRefreshListener(this)
+        binding.swipeRefreshLayout.isRefreshing = true
 
         //init viewmodel
         detailProductViewModel = ViewModelProvider(this).get(DetailProductViewModel::class.java)
 
-        //todo: tạm thời get cái item cụ thể này để set logic cho giao diện
-        detailProductViewModel.loadDetailProduct("zPbOVXABm0AMzR9GSZBT")
+        detailProductViewModel.loadDetailProduct(productId)
 
 
         productDescAdapter = ProductDescAdapter(this, DetailProductModel())
@@ -105,6 +115,7 @@ class DetailProductFragment : Fragment() {
             imageProductAdapter = ImageProductAdapter(it.productImage!!)
             binding.layoutProductImage.viewPagerProductImg.adapter = imageProductAdapter
             binding.layoutProductImage.indicatorProductImg.setViewPager(binding.layoutProductImage.viewPagerProductImg)
+            binding.swipeRefreshLayout.isRefreshing = false
         }
 
         return mView
@@ -140,6 +151,11 @@ class DetailProductFragment : Fragment() {
         binding.layoutRatings.progress3.progress = (detailProductModel.star3!!*100.0/totalRating).toInt()
         binding.layoutRatings.progress4.progress = (detailProductModel.star4!!*100.0/totalRating).toInt()
         binding.layoutRatings.progress5.progress = (detailProductModel.star5!!*100.0/totalRating).toInt()
+    }
+
+    override fun onRefresh() {
+        detailProductViewModel.loadDetailProduct(productId)
+        binding.swipeRefreshLayout.isRefreshing = true
     }
 
 }

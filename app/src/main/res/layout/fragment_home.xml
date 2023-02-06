@@ -104,8 +104,19 @@
             android:visibility="gone"
             layout="@layout/ph_no_internet"/>
 
+<!--        for add product manually-->
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fab"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:src="@drawable/ic_add"/>-->
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

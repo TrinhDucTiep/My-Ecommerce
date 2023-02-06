@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentController
 import androidx.navigation.NavController
@@ -25,14 +26,15 @@ class HorizontalProductAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val horizontalProductModel = listHorizontalProductModel.get(position)
-//        holder.productImage.setImageResource(listHorizontalProductModel.get(position).productImage)
-        Glide.with(holder.itemView.context).load(horizontalProductModel.productImage).placeholder(R.drawable.ic_home).into(holder.productImage)
+
+        Glide.with(holder.itemView.context).load(horizontalProductModel.productImage).placeholder(R.drawable.img_placeholder).into(holder.productImage)
         holder.productName.text = horizontalProductModel.productName
         holder.productDesc.text = horizontalProductModel.productDesc
         holder.productPrice.text = horizontalProductModel.productPrice
 
         holder.itemView.setOnClickListener {
-            navController.navigate(R.id.detailProductFragment)
+            val bundle = bundleOf("product_id" to horizontalProductModel.productId)
+            navController.navigate(R.id.detailProductFragment, bundle)
         }
     }
 

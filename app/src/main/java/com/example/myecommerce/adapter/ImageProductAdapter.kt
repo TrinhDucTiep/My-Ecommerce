@@ -16,7 +16,7 @@ class ImageProductAdapter(var listImgLink: MutableList<String>) : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: ImageProductViewHolder, position: Int) {
-        Glide.with(holder.itemView.context).load(listImgLink[position]).placeholder(R.drawable.ic_home).into(holder.imgProduct)
+        Glide.with(holder.itemView.context).load(listImgLink[position]).placeholder(R.drawable.img_placeholder).into(holder.imgProduct)
     }
 
     override fun getItemCount(): Int {
