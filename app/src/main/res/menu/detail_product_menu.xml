@@ -10,9 +10,10 @@
 
     <item
         android:id="@+id/cartIcon"
-        android:title="search"
+        android:title="cart"
         android:iconTint="@color/white"
         android:icon="@drawable/ic_cart_fill"
+        app:actionLayout="@layout/layout_cart_action_item"
         app:showAsAction="always">
     </item>
 

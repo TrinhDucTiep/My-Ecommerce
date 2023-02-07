@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <ImageView
+        android:id="@+id/imgCart"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_cart_fill"
+        app:tint="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/tvBadgeCart"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:text="0"
+        android:textSize="8sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_gravity="top|end"
+        android:background="@drawable/bg_red_circle"/>
+
+</FrameLayout>

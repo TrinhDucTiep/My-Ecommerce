@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.Animation.AnimationListener
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +18,7 @@ import com.example.myecommerce.R
 import com.example.myecommerce.adapter.ImageProductAdapter
 import com.example.myecommerce.adapter.ProductDescAdapter
 import com.example.myecommerce.databinding.FragmentDetailProductBinding
+import com.example.myecommerce.helper.AnimationHelper
 import com.example.myecommerce.model.DetailProductModel
 import com.example.myecommerce.viewmodel.DetailProductViewModel
 import com.google.android.material.tabs.TabLayoutMediator
@@ -47,63 +51,30 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             controller.popBackStack()
         }
 
+        //animation add to cart
+        setUpAnimationAddToCart()
+
         //swipe refresh
-        binding.swipeRefreshLayout.setOnRefreshListener(this)
-        binding.swipeRefreshLayout.isRefreshing = true
+        initSwipeRefresh()
 
         //init viewmodel
         detailProductViewModel = ViewModelProvider(this).get(DetailProductViewModel::class.java)
-
         detailProductViewModel.loadDetailProduct(productId)
 
-
-        productDescAdapter = ProductDescAdapter(this, DetailProductModel())
-        binding.layoutProductDesc.viewPagerProductDesc.adapter = productDescAdapter
 
         //favorite button
         binding.imgFavorite.setOnClickListener {
 
         }
 
-        //toobar icon
-        binding.toolBar.setOnMenuItemClickListener {
-            when(it.itemId){
-                R.id.cartIcon -> {
-                    controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
-                    return@setOnMenuItemClickListener true
-                }
-                else -> return@setOnMenuItemClickListener false
-            }
-        }
+        //toobar
+        setUpToolBar()
 
-        //tab layout for description
-        TabLayoutMediator(binding.layoutProductDesc.tabLayoutProductDesc, binding.layoutProductDesc.viewPagerProductDesc){
-            tab, position ->
-            run {
-                when (position) {
-                    0 -> tab.text = getString(R.string.description)
-                    1 -> tab.text = getString(R.string.specification)
-                    2 -> tab.text = getString(R.string.other)
-                    else -> {
-                        tab.text = getString(R.string.description)
-                    }
-                }
-            }
-        }.attach()
+        //init productDesc UI
+        setUpProductDescUI()
 
         //set listener for rating system
-        for(i in 0 until binding.layoutRatings.starContainer.childCount){
-            binding.layoutRatings.starContainer.getChildAt(i).setOnClickListener {
-                for(j in 0 until binding.layoutRatings.starContainer.childCount){
-                    val temp: ImageView = binding.layoutRatings.starContainer.getChildAt(j) as ImageView
-                    if(j <= i){
-                        temp.imageTintList = ContextCompat.getColorStateList(requireContext(), R.color.ratingYellow)
-                    } else{
-                        temp.imageTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorGrayBG)
-                    }
-                }
-            }
-        }
+        setUpRating()
 
         //fetch data
         detailProductViewModel.detailProductModelLiveData.observe(viewLifecycleOwner) {
@@ -119,6 +90,76 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         }
 
         return mView
+    }
+
+    fun initSwipeRefresh() {
+        binding.swipeRefreshLayout.setOnRefreshListener(this)
+        binding.swipeRefreshLayout.isRefreshing = true
+    }
+
+    fun setUpToolBar() {
+        binding.toolBar.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.cartIcon -> {
+                    controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
+                    return@setOnMenuItemClickListener true
+                }
+                else -> return@setOnMenuItemClickListener false
+            }
+        }
+    }
+
+    fun setUpProductDescUI() {
+        productDescAdapter = ProductDescAdapter(this, DetailProductModel())
+        binding.layoutProductDesc.viewPagerProductDesc.adapter = productDescAdapter
+        //tab layout for description
+        TabLayoutMediator(binding.layoutProductDesc.tabLayoutProductDesc, binding.layoutProductDesc.viewPagerProductDesc){
+                tab, position ->
+            run {
+                when (position) {
+                    0 -> tab.text = getString(R.string.description)
+                    1 -> tab.text = getString(R.string.specification)
+                    2 -> tab.text = getString(R.string.other)
+                    else -> {
+                        tab.text = getString(R.string.description)
+                    }
+                }
+            }
+        }.attach()
+    }
+
+    fun setUpAnimationAddToCart() {
+        binding.imgAddToCart.setOnClickListener {
+            AnimationHelper.translateAnimation(binding.imgCartAnimation, binding.imgAddToCart, binding.toolBar.findViewById(R.id.cartIcon), object : AnimationListener {
+                override fun onAnimationStart(animation: Animation?) {
+
+                }
+
+                override fun onAnimationEnd(animation: Animation?) {
+
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {
+
+                }
+
+            })
+        }
+    }
+
+    fun setUpRating() {
+        for(i in 0 until binding.layoutRatings.starContainer.childCount){
+            binding.layoutRatings.starContainer.getChildAt(i).setOnClickListener {
+                for(j in 0 until binding.layoutRatings.starContainer.childCount){
+                    val temp: ImageView = binding.layoutRatings.starContainer.getChildAt(j) as ImageView
+                    if(j <= i){
+                        temp.imageTintList = ContextCompat.getColorStateList(requireContext(), R.color.ratingYellow)
+                    } else{
+                        temp.imageTintList = ContextCompat.getColorStateList(requireContext(), R.color.colorGrayBG)
+                    }
+                }
+            }
+        }
     }
 
     fun fetchDataToUI(detailProductModel: DetailProductModel) {

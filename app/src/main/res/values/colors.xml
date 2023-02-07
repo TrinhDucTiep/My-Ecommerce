@@ -6,7 +6,7 @@
     <color name="colorPrimaryDark">#25beb5</color>
 +
     <!--    back ground-->
-    <color name="colorLightBG">#ECECEC</color>
+    <color name="colorLightBG">#F8F8F8</color>
     <color name="colorGrayBG">#d7d5d5</color>
     <color name="colorDarkBG">#1C1C1C</color>
 
