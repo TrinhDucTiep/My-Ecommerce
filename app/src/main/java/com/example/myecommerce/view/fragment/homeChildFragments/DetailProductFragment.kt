@@ -1,9 +1,7 @@
 package com.example.myecommerce.view.fragment.homeChildFragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.widget.ImageView
@@ -22,6 +20,7 @@ import com.example.myecommerce.helper.AnimationHelper
 import com.example.myecommerce.model.DetailProductModel
 import com.example.myecommerce.viewmodel.DetailProductViewModel
 import com.google.android.material.tabs.TabLayoutMediator
+
 
 class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
@@ -70,6 +69,64 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         //toobar
         setUpToolBar()
 
+//        requireActivity().addMenuProvider(object : MenuProvider{
+//            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+//                menuInflater.inflate(R.menu.detail_product_menu, menu)
+//            }
+//
+//            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+////                when(menuItem.itemId) {
+////                    R.id.searchIcon -> {
+//                if (menuItem.itemId == R.id.searchIcon)
+//                        Toast.makeText(requireContext(), "xyz", Toast.LENGTH_LONG).show()
+////                    }
+////                }
+//                return true
+//            }
+//
+//        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+        //menu
+//        val menuHost: MenuHost = requireActivity()
+//        menuHost.addMenuProvider(object : MenuProvider{
+//            override fun onPrepareMenu(menu: Menu) {
+//                super.onPrepareMenu(menu)
+//            }
+//
+//            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+//                menuInflater.inflate(R.menu.detail_product_menu, menu)
+//            }
+//
+//            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+////                for (i in 0 until menu.size()) {
+////                    val item: MenuItem = menu.getItem(i)
+////                    if (item.itemId === R.id.menu_more) {
+////                        itemChooser = item.actionView
+////                        if (itemChooser != null) {
+////                            itemChooser.setOnClickListener(this)
+////                        }
+////                    }
+////                }
+//
+//                return when (menuItem.itemId) {
+//                    R.id.cartIcon -> {
+////                        menuItem.actionView?.setOnClickListener {
+//                            controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
+////                        }
+//
+//                        true
+//                    }
+//                    R.id.searchIcon -> {
+//                        Toast.makeText(requireContext(), "abc", Toast.LENGTH_LONG).show()
+//                        true
+//                    }
+//                    else ->  false
+//                }
+////                return true
+//            }
+//
+//        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
         //init productDesc UI
         setUpProductDescUI()
 
@@ -102,6 +159,14 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             when(it.itemId){
                 R.id.cartIcon -> {
                     controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
+                    return@setOnMenuItemClickListener true
+                }
+//                R.id.imgProduct -> {
+//                    controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
+//                    return@setOnMenuItemClickListener true
+//                }
+                R.id.searchIcon -> {
+//                    Toast.makeText(requireContext(), "abcabc", Toast.LENGTH_LONG).show()
                     return@setOnMenuItemClickListener true
                 }
                 else -> return@setOnMenuItemClickListener false
@@ -199,4 +264,45 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         binding.swipeRefreshLayout.isRefreshing = true
     }
 
+//    override fun onPrepareOptionsMenu(menu: Menu) {
+//        super.onPrepareOptionsMenu(menu)
+//        val searchIcon = menu.findItem(R.id.cartIcon)
+//        val rootView = searchIcon.actionView as FrameLayout?
+//
+//        var redCircle = rootView!!.findViewById<View>(R.id.tvBadgeCart) as TextView
+//        var countTextView = rootView.findViewById<View>(R.id.imgCart) as ImageView
+//
+//        rootView.setOnClickListener{
+//                onOptionsItemSelected(searchIcon)
+//        }
+//    }
+//    }
+//
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        super.onCreateOptionsMenu(menu, inflater)
+//        inflater.inflate(R.menu.detail_product_menu, menu)
+//        val item = menu.findItem(R.id.cartIcon)
+//        val actionView = item.actionView
+//        actionView!!.setOnClickListener{
+//            Toast.makeText(requireContext(), "abcabc", Toast.LENGTH_LONG).show()
+//        }
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return when (item.itemId) {
+//            R.id.cartIcon -> {
+////                        menuItem.actionView?.setOnClickListener {
+//                controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
+////                        }
+//
+//                true
+//            }
+//            R.id.searchIcon -> {
+//                Toast.makeText(requireContext(), "abc", Toast.LENGTH_LONG).show()
+//                true
+//            }
+//            else ->  false
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 }
