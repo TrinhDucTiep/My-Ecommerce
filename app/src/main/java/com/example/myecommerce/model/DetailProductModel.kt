@@ -11,6 +11,7 @@ data class DetailProductModel(
     @get: PropertyName("4_star") @set: PropertyName("4_star") var star4: Long? = 0,
     @get: PropertyName("5_star") @set: PropertyName("5_star") var star5: Long? = 0,
     @get: PropertyName("description") @set: PropertyName("description") var description: String? = "",
+    @get: PropertyName("id_shop") @set: PropertyName("id_shop") var idShop: String? = "", //todo: tạm thời để id là shop name vì chưa làm cơ sở dữ liệu cho shop
     @get: PropertyName("other_desc") @set: PropertyName("other_desc") var otherDesc: String? = "",
     @get: PropertyName("product_image") @set: PropertyName("product_image") var productImage: MutableList<String>? = mutableListOf(),
     @get: PropertyName("product_name") @set: PropertyName("product_name") var productName: String? = "",

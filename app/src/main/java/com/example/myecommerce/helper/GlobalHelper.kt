@@ -4,14 +4,14 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import com.example.myecommerce.R
-import com.example.myecommerce.model.BannerModel
-import com.example.myecommerce.model.CategoryModel
+import java.text.DecimalFormat
 
 interface GlobalHelper {
     companion object{
 
         const val emailPattern = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}\$"
+
+
 
 //        val categoryModelList = mutableListOf<CategoryModel>(
 //            CategoryModel("link", "Trang chủ"),
@@ -54,5 +54,13 @@ interface GlobalHelper {
             }
         }
 
+        fun getMoneyFromString(money: String) : Long {
+            return money.replace("-.*".toRegex(), "").replace("\\D".toRegex(), "").toLong()
+        }
+
+        fun getStringFromMoney(money: Long) : String {
+            val formatter = DecimalFormat("###,###,###")
+            return "₫" + formatter.format(money)
+        }
     }
 }

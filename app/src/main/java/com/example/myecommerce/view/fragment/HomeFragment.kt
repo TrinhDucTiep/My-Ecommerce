@@ -1,16 +1,13 @@
 package com.example.myecommerce.view.fragment
 
 import android.annotation.SuppressLint
-import android.net.NetworkInfo
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -18,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
-import com.example.myecommerce.R
 import com.example.myecommerce.adapter.BannerAdapter
 import com.example.myecommerce.adapter.CategoryAdapter
 import com.example.myecommerce.adapter.GridProductAdapter
@@ -31,8 +27,6 @@ import com.example.myecommerce.model.HorizontalProductModel
 import com.example.myecommerce.viewmodel.BannerViewModel
 import com.example.myecommerce.viewmodel.CategoryViewModel
 import com.example.myecommerce.viewmodel.DealOfTheDayViewModel
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 

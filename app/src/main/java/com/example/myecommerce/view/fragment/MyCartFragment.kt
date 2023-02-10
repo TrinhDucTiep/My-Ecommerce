@@ -24,22 +24,22 @@ class MyCartFragment : Fragment() {
         binding = FragmentMyCartBinding.inflate(layoutInflater)
         val mView = binding.root
         
-        itemCartAdapter = CartAdapter(getListCartItem())
-        binding.rlMyCartLayout.rvMyCart.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
-        binding.rlMyCartLayout.rvMyCart.adapter = itemCartAdapter
+//        itemCartAdapter = CartAdapter(getListCartItem())
+//        binding.rlMyCartLayout.rvMyCart.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+//        binding.rlMyCartLayout.rvMyCart.adapter = itemCartAdapter
 
         return mView
     }
 
-    fun getListCartItem() : MutableList<ItemCartProductModel>{
-        val listItemCartProductModel = mutableListOf<ItemCartProductModel>()
-        listItemCartProductModel.add(ItemCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
-        listItemCartProductModel.add(ItemCartProductModel("Mobile city", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
-        listItemCartProductModel.add(ItemCartProductModel("Siêu thị điện máy", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
-        listItemCartProductModel.add(ItemCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
-        listItemCartProductModel.add(ItemCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
-        listItemCartProductModel.add(ItemCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
-        return listItemCartProductModel
-    }
+//    fun getListCartItem() : MutableList<ItemCartProductModel>{
+//        val listItemCartProductModel = mutableListOf<ItemCartProductModel>()
+//        listItemCartProductModel.add(ItemCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
+//        listItemCartProductModel.add(ItemCartProductModel("Mobile city", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
+//        listItemCartProductModel.add(ItemCartProductModel("Siêu thị điện máy", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
+//        listItemCartProductModel.add(ItemCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
+//        listItemCartProductModel.add(ItemCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
+//        listItemCartProductModel.add(ItemCartProductModel("Thế giới di động", R.drawable.iphone_14_pro_max_purple, "Iphone 14", "Màu tìm huyền ảo", "2500$", "2180$"))
+//        return listItemCartProductModel
+//    }
 
 }
