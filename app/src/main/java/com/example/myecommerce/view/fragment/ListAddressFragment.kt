@@ -16,7 +16,6 @@ import com.example.myecommerce.R
 import com.example.myecommerce.adapter.AddressAdapter
 import com.example.myecommerce.databinding.FragmentListAddressBinding
 import com.example.myecommerce.model.AddressModel
-import com.example.myecommerce.model.ListAddressModel
 import com.example.myecommerce.viewmodel.UserInfoViewModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -47,7 +46,7 @@ class ListAddressFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         userInfoViewModel = ViewModelProvider(this).get(UserInfoViewModel::class.java)
 
         //setup address adapter
-        addressAdapter = AddressAdapter(mutableListOf(), controller)
+        addressAdapter = AddressAdapter(mutableListOf(), controller, userInfoViewModel)
         binding.rvAddress.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         binding.rvAddress.adapter = addressAdapter
 
@@ -78,6 +77,9 @@ class ListAddressFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     }
 
     fun setupToolBar() {
+        binding.toolBar.setNavigationOnClickListener {
+            controller.popBackStack()
+        }
         binding.toolBar.setOnMenuItemClickListener {
             when(it.itemId) {
                 R.id.add -> {

@@ -57,7 +57,6 @@ class DetailProductViewModel : ViewModel() {
                         .get()
                         .addOnSuccessListener { document ->
                             listDetailProductModel.add(document.toObject(DetailProductModel::class.java)!!)
-                            val z = 0
                             cartAdapter.notifyItemInserted(listDetailProductModel.size - 1)
                             if (i == listId.size - 1) {
                                 updateUI.invoke()

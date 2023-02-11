@@ -85,6 +85,7 @@
     <string name="home_address">Địa chỉ nhà</string>
     <string name="save_address">Lưu địa chỉ</string>
     <string name="address">Địa chỉ</string>
+    <string name="title">Tiêu đề</string>
 
 <!--    detail product fragment-->
     <string name="sold">Đã bán %s</string>

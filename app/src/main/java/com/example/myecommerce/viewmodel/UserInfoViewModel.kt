@@ -27,8 +27,8 @@ class UserInfoViewModel : ViewModel() {
                 .document("MY_ADDRESS")
                 .update("address_model", FieldValue.arrayUnion(
                     hashMapOf(
-                        "title_address" to titleAddress,
-                        "detail_address" to detailAddress
+                        "title" to titleAddress,
+                        "content" to detailAddress
                     )
                 ))
                 .addOnSuccessListener {
@@ -73,8 +73,8 @@ class UserInfoViewModel : ViewModel() {
                 val listJsonAddressModel = it.get("address_model") as MutableList<Map<String, Any>>
                 //update json model
                 listJsonAddressModel[index] = hashMapOf(
-                    "title_address" to titleAddress,
-                    "content_address" to contentAddress
+                    "title" to titleAddress,
+                    "content" to contentAddress
                 )
                 //update to firestore
                 docRef.update("address_model", listJsonAddressModel)
