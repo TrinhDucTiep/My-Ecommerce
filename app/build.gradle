@@ -95,4 +95,7 @@ dependencies {
 
     //swipe refresh layout
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //Gson for parse json
+    implementation 'com.google.code.gson:gson:2.9.0'
 }

@@ -20,7 +20,7 @@ class AddressAdapter(var listAddressModel: MutableList<AddressModel>, var contro
 
     override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
         holder.tvTitle.text = listAddressModel[position].title
-        holder.tvAddress.text = listAddressModel[position].address
+        holder.tvAddress.text = listAddressModel[position].content
 
         holder.imgEdit.setOnClickListener {
             //todo: sau này nhớ điền thông tin vào các edittext ở màn tiếp theo
