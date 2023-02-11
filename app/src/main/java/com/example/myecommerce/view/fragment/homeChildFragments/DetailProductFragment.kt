@@ -50,9 +50,6 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             controller.popBackStack()
         }
 
-        //animation add to cart
-        setUpAnimationAddToCart()
-
         //swipe refresh
         initSwipeRefresh()
 
@@ -69,63 +66,8 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         //toobar
         setUpToolBar()
 
-//        requireActivity().addMenuProvider(object : MenuProvider{
-//            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-//                menuInflater.inflate(R.menu.detail_product_menu, menu)
-//            }
-//
-//            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-////                when(menuItem.itemId) {
-////                    R.id.searchIcon -> {
-//                if (menuItem.itemId == R.id.searchIcon)
-//                        Toast.makeText(requireContext(), "xyz", Toast.LENGTH_LONG).show()
-////                    }
-////                }
-//                return true
-//            }
-//
-//        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-
-        //menu
-//        val menuHost: MenuHost = requireActivity()
-//        menuHost.addMenuProvider(object : MenuProvider{
-//            override fun onPrepareMenu(menu: Menu) {
-//                super.onPrepareMenu(menu)
-//            }
-//
-//            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-//                menuInflater.inflate(R.menu.detail_product_menu, menu)
-//            }
-//
-//            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-////                for (i in 0 until menu.size()) {
-////                    val item: MenuItem = menu.getItem(i)
-////                    if (item.itemId === R.id.menu_more) {
-////                        itemChooser = item.actionView
-////                        if (itemChooser != null) {
-////                            itemChooser.setOnClickListener(this)
-////                        }
-////                    }
-////                }
-//
-//                return when (menuItem.itemId) {
-//                    R.id.cartIcon -> {
-////                        menuItem.actionView?.setOnClickListener {
-//                            controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
-////                        }
-//
-//                        true
-//                    }
-//                    R.id.searchIcon -> {
-//                        Toast.makeText(requireContext(), "abc", Toast.LENGTH_LONG).show()
-//                        true
-//                    }
-//                    else ->  false
-//                }
-////                return true
-//            }
-//
-//        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        //animation add to cart
+        setUpAnimationAddToCart()
 
         //init productDesc UI
         setUpProductDescUI()
@@ -157,19 +99,18 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     fun setUpToolBar() {
         binding.toolBar.setOnMenuItemClickListener {
             when(it.itemId){
+
                 R.id.cartIcon -> {
                     controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
                     return@setOnMenuItemClickListener true
                 }
-//                R.id.imgProduct -> {
-//                    controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
-//                    return@setOnMenuItemClickListener true
-//                }
+
                 R.id.searchIcon -> {
-//                    Toast.makeText(requireContext(), "abcabc", Toast.LENGTH_LONG).show()
                     return@setOnMenuItemClickListener true
                 }
+
                 else -> return@setOnMenuItemClickListener false
+
             }
         }
     }
@@ -195,20 +136,28 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     fun setUpAnimationAddToCart() {
         binding.imgAddToCart.setOnClickListener {
-            AnimationHelper.translateAnimation(binding.imgCartAnimation, binding.imgAddToCart, binding.toolBar.findViewById(R.id.cartIcon), object : AnimationListener {
-                override fun onAnimationStart(animation: Animation?) {
 
-                }
+            binding.progressBarLayout.lnProgressBarLayout.visibility = View.VISIBLE
 
-                override fun onAnimationEnd(animation: Animation?) {
+            detailProductViewModel.addItemToCart(productId, requireContext()) {
+                binding.progressBarLayout.lnProgressBarLayout.visibility = View.GONE
+                binding.imgCartAnimation.visibility = View.VISIBLE
+                AnimationHelper.translateAnimation(binding.imgCartAnimation, binding.imgAddToCart, binding.toolBar.findViewById(R.id.cartIcon), object : AnimationListener {
 
-                }
+                    override fun onAnimationStart(animation: Animation?) {
 
-                override fun onAnimationRepeat(animation: Animation?) {
+                    }
 
-                }
+                    override fun onAnimationEnd(animation: Animation?) {
+                        Toast.makeText(requireContext(), R.string.add_cart_item_successfully, Toast.LENGTH_SHORT).show()
+                    }
 
-            })
+                    override fun onAnimationRepeat(animation: Animation?) {
+
+                    }
+
+                })
+            }
         }
     }
 
@@ -264,45 +213,4 @@ class DetailProductFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         binding.swipeRefreshLayout.isRefreshing = true
     }
 
-//    override fun onPrepareOptionsMenu(menu: Menu) {
-//        super.onPrepareOptionsMenu(menu)
-//        val searchIcon = menu.findItem(R.id.cartIcon)
-//        val rootView = searchIcon.actionView as FrameLayout?
-//
-//        var redCircle = rootView!!.findViewById<View>(R.id.tvBadgeCart) as TextView
-//        var countTextView = rootView.findViewById<View>(R.id.imgCart) as ImageView
-//
-//        rootView.setOnClickListener{
-//                onOptionsItemSelected(searchIcon)
-//        }
-//    }
-//    }
-//
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(R.menu.detail_product_menu, menu)
-//        val item = menu.findItem(R.id.cartIcon)
-//        val actionView = item.actionView
-//        actionView!!.setOnClickListener{
-//            Toast.makeText(requireContext(), "abcabc", Toast.LENGTH_LONG).show()
-//        }
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return when (item.itemId) {
-//            R.id.cartIcon -> {
-////                        menuItem.actionView?.setOnClickListener {
-//                controller.navigate(R.id.action_detailProductFragment_to_myCartFragment)
-////                        }
-//
-//                true
-//            }
-//            R.id.searchIcon -> {
-//                Toast.makeText(requireContext(), "abc", Toast.LENGTH_LONG).show()
-//                true
-//            }
-//            else ->  false
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
 }

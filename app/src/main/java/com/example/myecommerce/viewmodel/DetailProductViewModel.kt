@@ -73,6 +73,22 @@ class DetailProductViewModel : ViewModel() {
             }
     }
 
+    fun addItemToCart(id: String, context: Context, updateUI: () -> Unit) {
+        if (!PreferenceHelper.firebaseUser?.uid.isNullOrEmpty()) {
+            firestore.collection("USERS")
+                .document(PreferenceHelper.firebaseUser?.uid!!)
+                .collection("USER_DATA")
+                .document("MY_CART")
+                .update("list_product_id", FieldValue.arrayUnion(id))
+                .addOnSuccessListener {
+                    updateUI.invoke()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(context, R.string.add_cart_item_failed, Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
     fun deleteItemInCart(id: String, inprogressUI: () -> Unit, updateUI: () -> Unit, updateAdapter: () -> Unit, context: Context) {
         if (!PreferenceHelper.firebaseUser?.uid.isNullOrEmpty()) {
             inprogressUI.invoke()

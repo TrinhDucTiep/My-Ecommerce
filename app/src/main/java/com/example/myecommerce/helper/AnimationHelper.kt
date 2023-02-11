@@ -18,16 +18,7 @@ class AnimationHelper {
         fun translateAnimation(viewAnimation: FloatingActionButton, startView: ImageView, endView: ActionMenuItemView, animationListener: AnimationListener) {
 
             //draw startView into viewAnimation
-//            val bitmap = Bitmap.createBitmap(
-//                startView.width, startView.height, Bitmap.Config.ARGB_8888
-//            )
-//            val canvas = Canvas(bitmap)
-//            viewAnimation.draw(canvas)
-//            startView.isDrawingCacheEnabled = true
-//            val cache = startView.getDrawingCache() ?: return
-//            val bitmap = Bitmap.createBitmap(cache)
-//            startView.isDrawingCacheEnabled = false
-//            viewAnimation.setImageBitmap(bitmap)
+            //now its temporily empty
 
             val startViewWidthCenter = startView.width / 2f
             val startViewHeightCenter = startView.height / 2f
@@ -72,7 +63,7 @@ class AnimationHelper {
 
             viewAnimation.startAnimation(animationSet)
 
-            animationSet.setAnimationListener(object : Animation.AnimationListener{
+            animationSet.setAnimationListener(object : AnimationListener{
                 override fun onAnimationStart(animation: Animation?) {
                     isAnimationStart = true
 
@@ -96,6 +87,7 @@ class AnimationHelper {
                 }
 
             })
+
         }
     }
 }

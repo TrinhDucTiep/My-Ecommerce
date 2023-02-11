@@ -49,6 +49,8 @@
     <string name="add_voucher_of_shop">Thêm mã giảm giá của shop</string>
     <string name="my_cart">Giỏ hàng của tôi</string>
     <string name="bought">Đã mua</string>
+    <string name="add_cart_item_successfully">Đã thêm vào giỏ hàng</string>
+    <string name="add_cart_item_failed">Thêm vào giỏ hàng thất bại</string>
     <string name="delete_cart_item_successfully">Đã xoá khỏi giỏ hàng</string>
     <string name="delete_cart_item_failed">Xoá khỏi giỏ hàng thất bại</string>
     <string name="delete_cart_dialog_title">Xoá khỏi giỏ hàng</string>

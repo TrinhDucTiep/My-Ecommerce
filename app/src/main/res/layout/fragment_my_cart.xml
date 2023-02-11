@@ -17,11 +17,17 @@
         app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/ic_back_arrow"/>
 
-    <include
-        android:id="@+id/rlMyCartLayout"
+<!--    <include-->
+<!--        android:id="@+id/rlMyCartLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@+id/toolBar"-->
+<!--        layout="@layout/layout_my_cart"/>-->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lnContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolBar"
-        layout="@layout/layout_my_cart"/>
+        android:layout_below="@+id/toolBar"/>
 
 </RelativeLayout>
