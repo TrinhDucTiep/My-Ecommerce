@@ -2,22 +2,15 @@ package com.example.myecommerce.viewmodel
 
 import android.content.Context
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import com.example.myecommerce.R
-import com.example.myecommerce.callback.VoidCallBack
 import com.example.myecommerce.helper.AlertDialogHelper
-import com.example.myecommerce.view.fragment.AccountFragment
-import com.example.myecommerce.view.fragment.MainFragment
 import com.example.myecommerce.view.fragment.system.LoginFragmentDirections
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
-class UserViewModel: ViewModel() {
+class AccountViewModel: ViewModel() {
     private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     fun registerWithEmailAndPassword(context: Context, controller: NavController, email: String, password: String){

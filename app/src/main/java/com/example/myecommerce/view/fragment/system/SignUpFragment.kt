@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.myecommerce.R
 import com.example.myecommerce.databinding.FragmentSignUpBinding
 import com.example.myecommerce.helper.GlobalHelper
-import com.example.myecommerce.viewmodel.UserViewModel
+import com.example.myecommerce.viewmodel.AccountViewModel
 
 class SignUpFragment : Fragment() {
 
@@ -21,7 +21,7 @@ class SignUpFragment : Fragment() {
     private lateinit var email: String
     private lateinit var password: String
 
-    private lateinit var userViewModel: UserViewModel
+    private lateinit var userViewModel: AccountViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +31,7 @@ class SignUpFragment : Fragment() {
         binding = FragmentSignUpBinding.inflate(layoutInflater)
         val mView = binding.root
         controller = findNavController()
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
 
         binding.icClose.setOnClickListener {
             controller.popBackStack()

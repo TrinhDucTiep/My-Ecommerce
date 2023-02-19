@@ -11,11 +11,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.myecommerce.R
 import com.example.myecommerce.databinding.FragmentLoginBinding
 import com.example.myecommerce.helper.GlobalHelper
-import com.example.myecommerce.viewmodel.UserViewModel
+import com.example.myecommerce.viewmodel.AccountViewModel
 
 class LoginFragment : Fragment() {
 
-    private lateinit var userViewModel: UserViewModel
+    private lateinit var userViewModel: AccountViewModel
     private lateinit var controller : NavController
     private lateinit var binding : FragmentLoginBinding
     private lateinit var email: String
@@ -29,7 +29,7 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(layoutInflater)
         val mView = binding.root
         controller = findNavController()
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
 
         binding.noAccountBtn.setOnClickListener {
             controller.navigate(LoginFragmentDirections.actionLoginFragmentToSignUpFragment())

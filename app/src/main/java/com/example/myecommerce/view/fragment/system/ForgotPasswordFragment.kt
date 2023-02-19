@@ -1,7 +1,6 @@
 package com.example.myecommerce.view.fragment.system
 
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,15 +11,14 @@ import androidx.navigation.fragment.findNavController
 import com.example.myecommerce.R
 import com.example.myecommerce.databinding.FragmentForgotPasswordBinding
 import com.example.myecommerce.helper.GlobalHelper
-import com.example.myecommerce.viewmodel.UserViewModel
-import com.google.firebase.auth.FirebaseAuth
+import com.example.myecommerce.viewmodel.AccountViewModel
 
 
 class ForgotPasswordFragment : Fragment() {
 
     private lateinit var binding: FragmentForgotPasswordBinding
     private lateinit var controller: NavController
-    private lateinit var userViewModel: UserViewModel
+    private lateinit var userViewModel: AccountViewModel
     private lateinit var email: String
 
     override fun onCreateView(
@@ -30,7 +28,7 @@ class ForgotPasswordFragment : Fragment() {
 
         binding = FragmentForgotPasswordBinding.inflate(layoutInflater)
         controller = findNavController()
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
         val mView = binding.root
 
         binding.icClose.setOnClickListener {
